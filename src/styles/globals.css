@@ -1,0 +1,25 @@
+body header {
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+.scroller_container {
+  background: linear-gradient(
+    135deg,
+    #fff 0,
+    rgb(255, 255, 255) 16%,
+    rgb(213, 213, 213) 16%,
+    rgb(247, 247, 247) 16%,
+    rgb(244, 244, 244) 17%,
+    rgb(230, 230, 230) 35%,
+    #fff 35%,
+    rgb(233, 233, 233) 56%,
+    #fff 56%,
+    #fff 80%,
+    #fff 80%,
+    #fff 100%
+  );
+  height: auto;
+  overflow: hidden;
+  width: auto;
+}
