@@ -1,58 +1,87 @@
-import React from "react";
+import Link from "next/link";
+import React, { useState } from "react";
 
-const StickyHeader = () => {
+const StickyHeader = ({
+  additionalClass,
+  topHeader,
+  setId,
+  logo,
+  logoWhite,
+  headerNumber,
+  headerLinks,
+  popupImage
+}) => {
+  const [navOpen, setnavOpen] = useState(false);
+  function toggleDesktopNav() {
+    setnavOpen(navOpen ? false : true);
+  }
   return (
-      <header className="header" id="top">
-        <div className="top_header">
-          <ul className="contact_phone external_link">
-            <li>
-              {" "}
-              <a href="tel:<?php the_field('header_phone1','option'); ?>">
-                T:90879686
-              </a>{" "}
-            </li>
-            <li>
-              {" "}
-              <a href="tel:<?php the_field('header_phone2','option'); ?>">
-                T:097979777
-              </a>{" "}
-            </li>
-          </ul>
-        </div>
-        <nav className="navbar">
+    <>
+      <header
+        className={`header ${additionalClass ? additionalClass : ""}`}
+        id={setId && setId}
+      >
+        {topHeader && (
+          <div className="top_header">
+            <ul className="contact_phone external_link">
+              {headerNumber?.map((number, index) => {
+                return (
+                  <li key={index}>
+                    <a href={number?.text}>{number?.text}</a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+        <nav className={navOpen ? "navbar light" : "navbar"}>
           <div className="logo">
             {" "}
-            <a href="<?php echo home_url(); ?>">
-              <img
-                width="100%"
-                height="100%"
-                src="https://pixelflames.com/wp-content/uploads/2023/02/Group-18red-black.svg"
-                alt="logo"
-              />
-            </a>
-            {/* <!-- <img src="<?php bloginfo('template_url'); ?>/images/christmashat1.png" className="its_christmas" alt="hat"> --> */}
+            <Link href="/">
+              <img width="100%" height="100%" src={logo} alt="logo" />
+            </Link>
           </div>
           <div className="logo light">
             {" "}
-            <a href="<?php echo home_url(); ?>">
-              <img
-                width="100%"
-                height="100%"
-                src="https://pixelflames.com/wp-content/uploads/2023/02/new.png"
-                alt="logo"
-              />
-            </a>
-            {/* <!-- <img src="<?php bloginfo('template_url'); ?>/images/christmashat1.png" className="its_christmas" alt="hat"> --> */}
+            <Link href="/">
+              <img width="100%" height="100%" src={logoWhite} alt="logo" />
+            </Link>
           </div>
           {/* <!-- end logo --> */}
-          <div className="phone contact_phone_desk"> T:979 </div>
-          <div className="phone contact_phone_desk"> T:0808 </div>
+          {headerNumber?.map((number, index) => {
+            return (
+              <div key={index} className="phone contact_phone_desk">
+                {number?.text}{" "}
+              </div>
+            );
+          })}
+
           {/* <!-- end phone --> */}
           <div className="main-menu">
             <ul>
-              <li>
-                <a href="#">about us</a>
-              </li>
+              {headerLinks?.map((link, index) => {
+                return (
+                  <li
+                    key={index}
+                    className={
+                      link?.link.length > 0 && "menu-item-has-children"
+                    }
+                  >
+                    <a href={link?.dropdown_href}>{link?.dropdown_text}</a>
+                    {link?.link.length > 0 && (
+                      <ul className="sub-menu">
+                        {link?.link?.map((link, index) => {
+                          return (
+                            <li key={index}>
+                              <a href={link?.href}>{link?.text}</a>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -64,36 +93,25 @@ const StickyHeader = () => {
             data-target="#get_in_touch"
           >
             <span>get i touch</span>
-            {/* <?php $call_back_icon_mob = get_field('call_back_icon_mob', 'option'); ?> */}
-            {/* <?php if($call_back_icon_mob) : ?> */}
+
             <img
               width="100%"
               height="100%"
-              src="<?php echo $call_back_icon_mob['url']; ?>"
-              alt="<?php echo $call_back_icon_mob['alt']; ?>"
+              src={"/images/req_call.png"}
+              alt="call"
             />
-            {/* <?php endif; ?> */}
           </button>
           {/* <!-- header get in touch end --> */}
 
           {/* <!-- end main-menu --> */}
-          <div className="hamburger-menu" id="hamburger-menu">
+          <div className={"hamburger-menu"} id="hamburger-menu">
             <div className="burger">
-              {/* <!-- <svg id="burger-svg" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-            <title>Show / Hide Navigation</title>
-            <rect className="burger-svg__base" width="50" height="50"/>
-            <g className="burger-svg__bars">
-              <rect className="burger-svg__bar burger-svg__bar-1" x="14" y="18" width="22" height="2"/>
-              <rect className="burger-svg__bar burger-svg__bar-2" x="14" y="24" width="22" height="2"/>
-              <rect className="burger-svg__bar burger-svg__bar-3" x="14" y="30" width="22" height="2"/>
-            </g>
-          </svg> --> */}
               <div className="custom_hamburger">
                 <span className="hamburger_line"></span>
                 <span className="hamburger_line"></span>
                 <span className="hamburger_line"></span>
               </div>
-              <div className="location_btn">
+              <div className="location_btn" onClick={toggleDesktopNav}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -123,6 +141,77 @@ const StickyHeader = () => {
           </div>
         </nav>
       </header>
+
+      {/* desktop menu  */}
+      <div className={navOpen ? "navigation-menu active" : "navigation-menu"}>
+        <div className="site_logo">
+          <div className="logo">
+            {" "}
+            <a href="<?php echo home_url(); ?>">
+              <img
+                width="100%"
+                height="100%"
+                src={logo}
+                alt="logo"
+              />
+            </a>
+          </div>
+        </div>
+        <div className="close_btn" onClick={toggleDesktopNav}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            className="bi bi-x-lg"
+            viewBox="0 0 16 16"
+          >
+            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+          </svg>
+        </div>
+        <div className="inner">
+          <div className="side-menu">
+      
+          </div>
+          {/* <!-- end side-menu --> */}
+          <div className="sides external_link">
+    
+            <div id="map">
+              {/* <iframe
+                src="<?php echo $map_iframe_src; ?>"
+                width="100%"
+                height="450"
+                frameborder="0"
+                style={{ border: 0 }}
+                allowfullscreen=""
+              ></iframe> */}
+            </div>
+      
+            <figure>
+              <picture>
+                <img
+                  src={popupImage}
+                  alt=""
+                />
+              </picture>
+              <a href="#map" data-fancybox>
+                <img
+                  src="<?php bloginfo('template_directory');?>/images/icon-map-marker.svg"
+                  alt="Image"
+                />
+              </a>
+            </figure>
+          </div>
+          {/* <!-- end sides --> */}
+          <div className="sides external_link">
+            <h6> asdasdsdd</h6>
+            asdasdasdasd
+          </div>
+          {/* <!-- end sides --> */}
+        </div>
+        {/* <!-- end inner --> */}
+      </div>
+    </>
   );
 };
 

@@ -1,34 +1,60 @@
-import React from "react";
+import React, { useRef } from "react";
+import Slider from "react-slick";
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div className="swiper_button_next" onClick={onClick}>
+      <span></span>
+    </div>
+  );
+}
 
-const Offgrid = () => {
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div className="swiper_button_prev" onClick={onClick}>
+      <span></span>{" "}
+    </div>
+  );
+}
+const Offgrid = ({
+  title1,
+  subtitle1,
+  description1,
+  image1,
+  title2,
+  description2,
+  slides,
+}) => {
+  const sliderRef = useRef();
+  var settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    arrows: true,
+    slide: "swiper-slide",
+    nextArrow: <SampleNextArrow onClick={sliderRef?.current?.slickNext()} />,
+    prevArrow: <SamplePrevArrow onClick={sliderRef?.current?.slickPrev()} />,
+    responsive: [
+      {
+        breakpoint: 990,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
   return (
     <section className="off_grid_column" data-scroll data-scroll-repeat>
       <div className="container">
-        {/* 
-    <?php while( have_rows('digital_services_details') ): the_row(); ?>
-      <?php 
-        $digital_row_count = get_row_index();
-        $digital_related_image_slider = get_sub_field('digital_related_image_slider'); 
-        $digital_title = get_sub_field('digital_title'); 
-        $digital_sub_title = get_sub_field('digital_sub_title'); 
-        $digital_details = get_sub_field('digital_details'); 
-        $related_image_desk = get_sub_field('related_image_desk');
-        $related_image_mob = get_sub_field('related_image_mob'); 
-      ?>
-      <?php if($digital_related_image_slider == 'image') : ?> */}
         <div className="grid_item row">
           <div className="col-lg-7">
             <div className="detail_content ">
-              {/* <?php
-                if($digital_row_count==2) {
-                  echo '<h4>'.$digital_title.'</h4>';
-                } else {
-                  echo '<h4>'.$digital_title.'</h4>';
-                }
-              ?> */}
-              <h4>asdasd</h4>
-              <h5>Digitally empowered businesses</h5>
-              Unlock your digital potential faster, better, and more efficient.
+              {title1 && <h4>{title1}</h4>}
+              {subtitle1 && <h5>{subtitle1}</h5>}
+              {description1 && description1}
             </div>
           </div>
           <div className="col-lg-5">
@@ -38,93 +64,53 @@ const Offgrid = () => {
               data-scroll
               data-scroll-speed="2"
             >
-              <picture>
-                <img
-                  src="<?php echo $related_image_desk['url']; ?>"
-                  alt="<?php echo $related_image_desk['alt']; ?>"
-                />
-                <source
-                  media="(max-width:990px)"
-                  srcSet="<?php echo webpUrl($related_image_mob['url']); ?>"
-                  type="image/webp"
-                />
-                <source
-                  media="(max-width:990px)"
-                  srcSet="<?php echo $related_image_mob['url']; ?>"
-                  type="image/jpeg"
-                />
-                <source
-                  srcSet="<?php echo webpUrl($related_image_desk['url']); ?>"
-                  type="image/webp"
-                />
-                <source
-                  srcSet="<?php echo $related_image_desk['url']; ?>"
-                  type="image/jpeg"
-                />
-              </picture>
+              <img src={image1} alt={title1} />
             </div>
-            {/* <?php endif; ?> */}
           </div>
         </div>
-        {/* <?php elseif($digital_related_image_slider == 'slider') : ?> */}
         <div className="grid_item row">
           <div className="col-12">
             <div className="container Pading_Reduce">
               <div className="detail_content ">
-                {/* <?php
-                if($digital_row_count==2) {
-                  echo '<h4>'.$digital_title.'</h4>';
-                } else {
-                  echo '<h4>'.$digital_title.'</h4>';
-                }
-              ?> */}
-                <h4>Lorem, ipsum dolor.</h4> 
-                <h5>sdasdasdasdsd</h5>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Sapiente, culpa.
+                {title2 && <h4>{title2}</h4>}
+                {description2 && description2}
               </div>
             </div>
           </div>
           <div className="col-12">
             <div className="slider">
-              <div className="swiper_button_prev">
-                <span></span>
-              </div>
-
-              {/* <?php if( have_rows('related_slider') ): ?> */}
               <div className="custom_swiper ">
-                <div className="swiper-wrapper">
-                  {/* <?php $i = 1; ?>
-                    <?php while( have_rows('related_slider') ): the_row(); ?>
-                      <?php
-                        $related_title = get_sub_field('related_title');
-                        $related_details = get_sub_field('related_details');
-                        $background_image = get_sub_field('background_image');
-                      ?> */}
-                  <div
-                    className="swiper-slide"
-                    data-background="<?php echo webpUrl($background_image['url']); ?>"
-                  >
-                    <div className="slide-inner">
-                      <h4>asdasdasdsd</h4>
-                      Lorem ipsum dolor sit amet.
-                    </div>
-                  </div>
-                  {/* <?php $i++; ?>
-                    <?php endwhile; ?> */}
-                </div>
-                {/* <?php if($i>2) : ?>
-                  <?php endif; ?> */}
-              </div>
-              {/* <?php endif; ?> */}
-              <div className="swiper_button_next">
-                <span></span>
+                <Slider
+                  {...settings}
+                  className="swiper-wrapper"
+                  ref={sliderRef}
+                >
+                  {slides?.map((slide, index) => {
+                    return (
+                      <div
+                        className="swiper-slide"
+                        data-background={slide?.image?.data?.attributes?.url}
+                        style={{
+                          backgroundImage: slide?.image?.data?.attributes?.url,
+                        }}
+                        key={index}
+                      >
+                        <img
+                          src={slide?.image?.data?.attributes?.url}
+                          alt={slide?.title}
+                        />
+                        <div className="slide-inner text-white">
+                          <h4 className="text-white">{slide?.title}</h4>
+                          {slide?.subtitle}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </Slider>
               </div>
             </div>
           </div>
         </div>
-        {/* <?php endif; ?>
-    <?php endwhile; ?> */}
       </div>
     </section>
   );

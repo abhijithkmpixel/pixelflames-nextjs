@@ -1,9 +1,21 @@
 import React, { useEffect } from "react";
 
-const Banner = ({ title, subtitle, bg, bgOverlay, button, sideImage }) => {
+const Banner = ({
+  title,
+  subtitle,
+  bg,
+  bgOverlay,
+  button,
+  sideImage,
+  sideImageLink,
+}) => {
   return (
     <section className="customHomeBannerDev">
-      <img src={bg?.data?.attributes?.url} alt="" className="bannerBgImage" />
+      <img
+        src={bg?.data?.attributes?.url}
+        alt="background"
+        className="bannerBgImage"
+      />
       <img
         src={bgOverlay?.data?.attributes?.url}
         alt=""
@@ -26,15 +38,20 @@ const Banner = ({ title, subtitle, bg, bgOverlay, button, sideImage }) => {
             )}
           </div>
           <div className="rightSideImage">
-            <img src={sideImage?.data?.attributes?.url} alt="laptop" className="" />
-
-            <a
-              className="customCtaBtn hoverBtn"
-              href="<?php echo esc_url( $link_url ); ?>"
-              target="<?php echo esc_attr( $link_target ); ?>"
-            >
-              link2
-            </a>
+            <img
+              src={sideImage?.data?.attributes?.url}
+              alt="laptop"
+              className=""
+            />
+            {sideImageLink && (
+              <a
+                className="customCtaBtn hoverBtn"
+                href={sideImageLink?.href}
+                target="<?php echo esc_attr( $link_target ); ?>"
+              >
+                {sideImageLink?.text}
+              </a>
+            )}
           </div>
         </div>
       </div>

@@ -1,31 +1,20 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
 
-const ReadyToBegin = () => {
+const ReadyToBegin = ({ readyToBegin }) => {
   return (
-    <div
-      className="full_width_blockquote  ready_to_begin"
-      data-scroll
-      data-scroll-speed="1"
-      data-scroll-repeat
-    >
+    <div className="full_width_blockquote  ready_to_begin">
       <div className="body_content container">
-        {/* <?php
-        echo $begin_content;
-        if($begin_cta_button) :
-      echo ' */}
-        <span>adasdsd</span>
-        <h3>adadsdasdsds</h3>
-        <div className="custom-btn">
-          <a
-            href="#"
-            target="_self"
-          >
-            adasdasdsd<span></span> <i></i>
-          </a>
-        </div>
-        ';
-        {/* endif; */}
-        {/* ?> */}
+        <span>{readyToBegin?.attributes?.subtitle}</span>
+        <h3>{readyToBegin?.attributes?.title}</h3>
+        {readyToBegin?.attributes?.cta && (
+          <div className="custom-btn">
+            <a href={readyToBegin?.attributes?.cta?.href} target="_self">
+              {readyToBegin?.attributes?.cta?.text}
+              <span></span> <i></i>
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );

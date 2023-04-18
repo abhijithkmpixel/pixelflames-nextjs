@@ -1,7 +1,12 @@
 body header {
   position: fixed;
   width: 100%;
-  z-index: 10;
+  z-index: 101;
+}
+header:not(.desktop_sticky_navbar),
+body.page-template-page-home-new header:not(.desktop_sticky_navbar) {
+  position: absolute;
+  z-index: 100;
 }
 .scroller_container {
   background: linear-gradient(
@@ -22,4 +27,95 @@ body header {
   height: auto;
   overflow: hidden;
   width: auto;
+}
+.testimonial-wrap .slick-dots li {
+  width: auto;
+  height: auto;
+  margin-right: 20px;
+}
+.testimonial-wrap .slick-dots li.slick-active button::before {
+  opacity: 1;
+}
+.testimonial-wrap .slick-dots li button::before {
+  position: static;
+  opacity: 1;
+  color: transparent;
+  content: "";
+  display: block;
+  min-width: 10px;
+  background-color: #e74847;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: 0;
+}
+.testimonial-wrap .slick-dots li button {
+  width: 15px;
+  height: 15px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(231, 72, 71, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.testimonial-wrap .slick-dots {
+  position: static;
+  margin-top: 30px;
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-start;
+}
+.off_grid_column .grid_item .slider .slick-track > div {
+  padding: 0 15px;
+  height: 100%;
+}
+.off_grid_column .grid_item .slider .swiper-slide {
+  width: 100% !important;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+.off_grid_column .grid_item .detail_content,
+.customAboutUsSection .aboutUsInnerWrapper p {
+  white-space: break-spaces;
+}
+.full_width_blockquote .body_content .custom-btn span {
+  background: #e74847 !important;
+}
+.full_width_blockquote .body_content .custom-btn:hover span {
+  background: #fff !important;
+}
+.full_width_blockquote .body_content .custom-btn a {
+  border-color: #e74847;
+  color: #e74847 !important;
+}
+.full_width_blockquote .body_content .custom-btn a:hover {
+  background: #e74847;
+  color: #fff !important;
+}
+.custom-btn i {
+  border-color: transparent transparent transparent #e74847 !important;
+}
+.footer h5,
+.footer address {
+  color: #fff;
+  white-space: break-spaces;
+}
+footer a,
+.footer .sub-footer span {
+  color: #fff;
+}
+footer .sub-footer .quicK_links {
+  width: 100%;
+}
+@media (max-width: 1200px) {
+  .off_grid_column .grid_item .slider {
+    height: auto;
+  }
+  .off_grid_column .grid_item .slider .slick-list ,.off_grid_column .grid_item .slider .slick-track{
+    height: 100%;
+  }
+  .off_grid_column .grid_item .slider .swiper-slide {
+    aspect-ratio: unset;
+  }
 }
