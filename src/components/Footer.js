@@ -67,7 +67,7 @@ const Footer = ({ footerData }) => {
               <ul>
                 {footerData?.footer_links?.map((link, index) => {
                   return (
-                    <li>
+                    <li key={index}>
                       <a href={link?.href}>{link?.text}</a>
                     </li>
                   );

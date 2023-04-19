@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useEffect } from "react";
 
 const Banner = ({
@@ -16,6 +17,7 @@ const Banner = ({
         alt="background"
         className="bannerBgImage"
       />
+
       <img
         src={bgOverlay?.data?.attributes?.url}
         alt=""
@@ -28,11 +30,7 @@ const Banner = ({
             <h2>{title}</h2>
             <h6>{subtitle}</h6>
             {button && (
-              <a
-                className="customCtaBtn"
-                href={button?.href}
-                target="<?php echo esc_attr( $link_target ); ?>"
-              >
+              <a className="customCtaBtn" href={button?.href}>
                 {button?.text}
               </a>
             )}
@@ -44,11 +42,7 @@ const Banner = ({
               className=""
             />
             {sideImageLink && (
-              <a
-                className="customCtaBtn hoverBtn"
-                href={sideImageLink?.href}
-                target="<?php echo esc_attr( $link_target ); ?>"
-              >
+              <a className="customCtaBtn hoverBtn" href={sideImageLink?.href}>
                 {sideImageLink?.text}
               </a>
             )}

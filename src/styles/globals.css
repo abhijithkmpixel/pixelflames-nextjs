@@ -4,9 +4,9 @@ body header {
   z-index: 101;
 }
 header:not(.desktop_sticky_navbar),
-body.page-template-page-home-new header:not(.desktop_sticky_navbar) {
+body header:not(.desktop_sticky_navbar) {
   position: absolute;
-  z-index: 100;
+  z-index: 10;
 }
 .scroller_container {
   background: linear-gradient(
@@ -112,10 +112,98 @@ footer .sub-footer .quicK_links {
   .off_grid_column .grid_item .slider {
     height: auto;
   }
-  .off_grid_column .grid_item .slider .slick-list ,.off_grid_column .grid_item .slider .slick-track{
+  .off_grid_column .grid_item .slider .slick-list,
+  .off_grid_column .grid_item .slider .slick-track {
     height: 100%;
   }
   .off_grid_column .grid_item .slider .swiper-slide {
     aspect-ratio: unset;
   }
+}
+#map iframe {
+  width: 100%;
+  display: block;
+  height: 500px;
+  max-height: 100vh;
+  margin: 0 25px;
+}
+.navigation-menu #map .close_btn {
+  background-color: #000;
+}
+.navigation-menu #map {
+  position: fixed;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  left: 50%;
+  top: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(246, 50, 62, 1);
+  transform: translate(-50%, -50%);
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+.navigation-menu .inner figure div {
+  width: 50px;
+  height: 50px;
+  line-height: 44px;
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  cursor: pointer;
+  background: #fff;
+  text-align: center;
+}
+.navigation-menu .close_btn {
+  z-index: 0;
+}
+.modal.fade.get_in_touch_form {
+  background-color: rgba(246, 50, 62, 1);
+}
+.close:not(:disabled):not(.disabled):focus {
+  opacity: 1;
+}
+.opacity-1 {
+  opacity: 1 !important;
+}
+.inner_page .navbar .main-menu ul li a {
+  color: #000;
+}
+header:not(.inner_page) .navbar .logo.light {
+  display: block;
+}
+header:not(.inner_page) .navbar .logo {
+  display: none;
+}
+header.desktop_sticky_navbar:not(.inner_page) .navbar .logo.light {
+  display: none;
+}
+header.desktop_sticky_navbar:not(.inner_page) .navbar .logo {
+  display: block;
+}
+header:not(.inner_page) .navbar .main-menu ul li a,
+header:not(.inner_page) .top_header ul.contact_phone a {
+  color: #fff;
+}
+header.inner_page li.menu-item-has-children ul.sub-menu li a {
+  color: #fff;
+}
+header.inner_page:not(.desktop_sticky_navbar) {
+  position: static;
+}
+header.desktop_sticky_navbar:not(.inner_page) .navbar .main-menu ul li a,
+header.desktop_sticky_navbar:not(.inner_page) .top_header ul.contact_phone a {
+  color: #000;
+}
+@media (min-width: 1200px) {
+  header.inner_page .navbar .main-menu ul li a:hover {
+    color: #e74847;
+  }
+}
+#nprogress .bar {
+  background: #e74847;
+  height: 4px;
 }

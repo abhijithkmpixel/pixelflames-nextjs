@@ -15,7 +15,7 @@ export default function Document() {
         <link rel="stylesheet" href="/styles/custom.css" />
         <link rel="stylesheet" href="/styles/revamp.css" />
       </Head>
-      <body className={"page-template-page-home-new"}>
+      <body className={"page-template-page-home-new_"}>
         <Main />
         <NextScript />
       </body>

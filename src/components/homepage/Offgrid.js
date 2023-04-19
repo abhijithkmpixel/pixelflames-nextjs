@@ -58,7 +58,6 @@ const Offgrid = ({
             </div>
           </div>
           <div className="col-lg-5">
-            {/* <?php if($related_image_desk || $related_image_mob) : ?> */}
             <div
               className="thumbnail_image min_570"
               data-scroll

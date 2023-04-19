@@ -30,7 +30,10 @@ const PortfolioListing = ({ title, button, portfolios }) => {
         <div className="row porfolio_list_row">
           {portfolios?.map((portfolio, index) => {
             return (
-              <div className="col-12 col-md-6 col-lg-4 portfolio_list_cards" key={index}>
+              <div
+                className="col-12 col-md-6 col-lg-4 portfolio_list_cards"
+                key={index}
+              >
                 <Link href={`/our-work/${portfolio?.attributes?.slug}`}>
                   <figure>
                     <img
