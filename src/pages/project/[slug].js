@@ -1,15 +1,14 @@
 import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
+import PortfolioPageBuilder from "@/components/PortfolioPageBuilder";
 import ReadyToBegin from "@/components/ReadyToBegin";
 import StickyHeader from "@/components/StickyHeader";
-import { AboutIntro } from "@/components/homepage/AboutIntro";
-import HowWeWork from "@/components/homepage/HowWeWork";
 import axios from "axios";
 import Head from "next/head";
 import React from "react";
 
-const AboutUsPage = ({ headerData, footerData, readyToBegin, aboutus }) => {
-  console.log(aboutus);
+const ProjectDetailPage = ({ headerData, footerData, readyToBegin, data }) => {
+  // console.log(data);
   return (
     <>
       <Head>
@@ -30,45 +29,37 @@ const AboutUsPage = ({ headerData, footerData, readyToBegin, aboutus }) => {
           headerPopupDesc={headerData?.header_popup_description}
           mapLink={headerData?.map_link}
           getInTouch={headerData?.get_in_touch_button}
-          pageTitle={aboutus?.attributes?.about_us_title}
-          pageDescription={aboutus?.attributes?.about_us_description}
+          pageTitle={data?.attributes?.name}
+          pageDescription={data?.attributes?.title_description}
+          extLink={data?.attributes?.external_site_link}
         />
       )}
-      {aboutus !== null && (
+      {data !== null && (
         <>
           <PageHeader
             image={
-              aboutus?.attributes?.about_us_banner_image?.data?.attributes?.url
+              data?.attributes?.portfolio_banner_image?.data?.attributes?.url
             }
           />
-          <AboutIntro
-            title={aboutus?.attributes?.section_two_title}
-            description={aboutus?.attributes?.section_two_description}
-            columns={[
-              aboutus?.attributes?.section_two_column_one,
-              aboutus?.attributes?.section_two_column_two,
-            ]}
-          />
-          <HowWeWork
-            title={aboutus?.attributes?.how_we_work_title}
-            description={aboutus?.attributes?.how_we_work_description}
-            works={aboutus?.attributes?.how_we_work_row}
-          />
-          {aboutus?.attributes?.show_get_in_touch && (
-            <ReadyToBegin readyToBegin={readyToBegin} />
-          )}
+          <PortfolioPageBuilder pageBuilder={data?.attributes?.page_builder} />
         </>
+      )}
+
+      {data?.attributes?.show_get_in_touch && (
+        <ReadyToBegin readyToBegin={readyToBegin} />
       )}
       {footerData !== null && <Footer footerData={footerData} />}
     </>
   );
 };
 
-export default AboutUsPage;
+export default ProjectDetailPage;
 
 export async function getServerSideProps(context) {
+  const { params } = context;
+  console.log(params.slug);
   const data = await axios
-    .get(`${process.env.DOMAIN_URL}/api/aboutus?populate=*`)
+    .get(`${process.env.DOMAIN_URL}/api/project?slug=${params.slug}`)
     .then(function (response) {
       // handle success
       return response?.data;
@@ -79,10 +70,10 @@ export async function getServerSideProps(context) {
     });
   return {
     props: {
-      aboutus:
+      data:
         Object.keys(data).length > 0
-          ? data?.aboutus && data?.aboutus !== null
-            ? data?.aboutus
+          ? data?.data && data?.data !== null
+            ? data?.data[0]
             : null
           : null,
       headerData:

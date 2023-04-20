@@ -3,10 +3,10 @@
 import axios from "axios";
 
 export default async function handler(req, res) {
+  const { slug } = req.query;
+
   const data = await axios
-    .get(
-      `${process.env.API_URL}/api/ui-design-services-dubai?populate[0]=*&populate[1]=portfolio_list.listing_image&populate[2]=design_process_card&populate[3]=design_process_card.icon&populate[4]=testimony_row&populate[5]=our_portfolio_button&populate[6]=contact_form`
-    )
+    .get(`${process.env.API_URL}/api/portfolios?filters[slug][$eq]=${slug}&populate[0]=external_site_link&populate[1]=page_builder&populate[2]=portfolio_banner_image&populate[3]=page_builder.rows&populate[4]=page_builder.image&populate[5]=page_builder.image.image&populate[6]=page_builder.title&populate[7]=page_builder.description&populate[8]=page_builder.side_image`)
     .then(function (response) {
       // handle success
       return response?.data?.data;
@@ -14,20 +14,19 @@ export default async function handler(req, res) {
     .catch(function (error) {
       // handle error
       console.log(error);
-      return null
+      return null;
     });
-  // const readyToBegin = await axios
-  //   .get(`${process.env.API_URL}/api/ready-to-begin?populate=*`)
-  //   .then(function (response) {
-  //     // handle success
-  //     return response?.data?.data;
-  //   })
-  //   .catch(function (error) {
-  //     // handle error
-  //     console.log(error);
-  //     return null
-
-  //   });
+  const readyToBegin = await axios
+    .get(`${process.env.API_URL}/api/ready-to-begin?populate=*`)
+    .then(function (response) {
+      // handle success
+      return response?.data?.data;
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+      return null;
+    });
   const headerData = await axios
     .get(
       `${process.env.API_URL}/api/header?populate[0]=header_logo_white&populate[1]=header_links.link&populate[2]=header_image&populate[3]=header_contact_number&populate[4]=side_image_link&populate[5]=get_in_touch_button&populate[6]=header_popup_image`
@@ -39,8 +38,7 @@ export default async function handler(req, res) {
     .catch(function (error) {
       // handle error
       console.log(error);
-      return null
-
+      return null;
     });
   const footerData = await axios
     .get(
@@ -55,9 +53,9 @@ export default async function handler(req, res) {
       console.log(error);
     });
   res.status(200).json({
-    data:  data,
+    data: data,
     headerData: headerData,
     footerData: footerData,
-    // readyToBegin: readyToBegin,
+    readyToBegin: readyToBegin,
   });
 }

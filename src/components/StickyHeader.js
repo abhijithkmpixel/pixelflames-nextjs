@@ -15,6 +15,8 @@ const StickyHeader = ({
   pageTitle,
   pageDescription,
   button,
+  pageBody,
+  extLink,
 }) => {
   const [navOpen, setnavOpen] = useState(false);
   const [mapOpen, setmapOpen] = useState(false);
@@ -296,7 +298,15 @@ const StickyHeader = ({
                   </div>
                 </div>
               )}
-              ;
+              {extLink && (
+                <Link
+                  className="porfolio_link"
+                  href={extLink?.href}
+                  target="_blank"
+                >
+                  {extLink?.text}
+                </Link>
+              )}
             </div>
           </div>
         ) : null}
@@ -429,39 +439,41 @@ const StickyHeader = ({
             </button>
             <div className="modal-body">
               <h6>Request a call back</h6>
-              <div className="row align-items-center">
-                <div className="col-md-7 col-sm-12">
-                  <fieldset className="form_field">
-                    <label htmlFor="name">
-                      Name<span>*</span>
-                    </label>
-                    <input type="text" id="name" name="name" />
-                  </fieldset>
-                  <fieldset className="form_field">
-                    <label htmlFor="email">
-                      Email<span>*</span>
-                    </label>
-                    <input type="email" id="email" name="email" />
-                  </fieldset>
-                  <fieldset className="form_field">
-                    <label htmlFor="phone">
-                      Phone<span>*</span>
-                    </label>
-                    <input type="tel" id="phone" name="phone" />
-                  </fieldset>
-                  <fieldset className="mt-3 mb-2">
-                    <input type="submit" value={"SEND"} />
-                  </fieldset>
+              <form>
+                <div className="row align-items-center">
+                  <div className="col-md-7 col-sm-12">
+                    <fieldset className="form_field">
+                      <label htmlFor="name">
+                        Name<span>*</span>
+                      </label>
+                      <input type="text" id="name" name="name" />
+                    </fieldset>
+                    <fieldset className="form_field">
+                      <label htmlFor="email">
+                        Email<span>*</span>
+                      </label>
+                      <input type="email" id="email" name="email" />
+                    </fieldset>
+                    <fieldset className="form_field">
+                      <label htmlFor="phone">
+                        Phone<span>*</span>
+                      </label>
+                      <input type="tel" id="phone" name="phone" />
+                    </fieldset>
+                    <fieldset className="mt-3 mb-2">
+                      <input type="submit" value={"SEND"} />
+                    </fieldset>
+                  </div>
+                  <div className="col-md-5 col-sm-12">
+                    <figure>
+                      <img
+                        src="/images/capacitive-touch-sensing-icon.png"
+                        alt="touch icon"
+                      />
+                    </figure>
+                  </div>
                 </div>
-                <div className="col-md-5 col-sm-12">
-                  <figure>
-                    <img
-                      src="/images/capacitive-touch-sensing-icon.png"
-                      alt="touch icon"
-                    />
-                  </figure>
-                </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>

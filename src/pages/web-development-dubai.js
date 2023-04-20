@@ -2,20 +2,17 @@ import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
 import ReadyToBegin from "@/components/ReadyToBegin";
 import StickyHeader from "@/components/StickyHeader";
-import { AboutIntro } from "@/components/homepage/AboutIntro";
-import HowWeWork from "@/components/homepage/HowWeWork";
+import OurWorksList from "@/components/homepage/OurWorksList";
 import axios from "axios";
 import Head from "next/head";
 import React from "react";
 
-const AboutUsPage = ({ headerData, footerData, readyToBegin, aboutus }) => {
-  console.log(aboutus);
+const OurWorksPage = ({ headerData, footerData, readyToBegin, data }) => {
   return (
     <>
       <Head>
         <title>
-          Web Development Services Company Dubai | Ecommerce Site Developer
-          Dubai
+          Web Development Company Dubai | Ecommerce Site Developer Dubai
         </title>
       </Head>
       {headerData !== null && (
@@ -30,45 +27,41 @@ const AboutUsPage = ({ headerData, footerData, readyToBegin, aboutus }) => {
           headerPopupDesc={headerData?.header_popup_description}
           mapLink={headerData?.map_link}
           getInTouch={headerData?.get_in_touch_button}
-          pageTitle={aboutus?.attributes?.about_us_title}
-          pageDescription={aboutus?.attributes?.about_us_description}
+          pageTitle={data?.attributes?.portfolio_title}
+          pageDescription={data?.attributes?.portfolio_description}
         />
       )}
-      {aboutus !== null && (
+      {data !== null && (
         <>
           <PageHeader
             image={
-              aboutus?.attributes?.about_us_banner_image?.data?.attributes?.url
+              data?.attributes?.portfolio_banner_image?.data?.attributes?.url
             }
           />
-          <AboutIntro
-            title={aboutus?.attributes?.section_two_title}
-            description={aboutus?.attributes?.section_two_description}
-            columns={[
-              aboutus?.attributes?.section_two_column_one,
-              aboutus?.attributes?.section_two_column_two,
-            ]}
-          />
-          <HowWeWork
-            title={aboutus?.attributes?.how_we_work_title}
-            description={aboutus?.attributes?.how_we_work_description}
-            works={aboutus?.attributes?.how_we_work_row}
-          />
-          {aboutus?.attributes?.show_get_in_touch && (
-            <ReadyToBegin readyToBegin={readyToBegin} />
-          )}
+
+          <div className="color-white">
+            <OurWorksList
+              title={data?.attributes?.recent_works_title}
+              description={data?.attributes?.our_works_description}
+              button={data?.attributes?.get_in_touch_button}
+              portfolios={data?.attributes?.portfolio_list?.data}
+            />
+          </div>
         </>
+      )}
+      {data?.attributes?.show_get_in_touch && (
+        <ReadyToBegin readyToBegin={readyToBegin} />
       )}
       {footerData !== null && <Footer footerData={footerData} />}
     </>
   );
 };
 
-export default AboutUsPage;
+export default OurWorksPage;
 
 export async function getServerSideProps(context) {
   const data = await axios
-    .get(`${process.env.DOMAIN_URL}/api/aboutus?populate=*`)
+    .get(`${process.env.DOMAIN_URL}/api/ourworks`)
     .then(function (response) {
       // handle success
       return response?.data;
@@ -79,10 +72,10 @@ export async function getServerSideProps(context) {
     });
   return {
     props: {
-      aboutus:
+      data:
         Object.keys(data).length > 0
-          ? data?.aboutus && data?.aboutus !== null
-            ? data?.aboutus
+          ? data?.data && data?.data !== null
+            ? data?.data
             : null
           : null,
       headerData:

@@ -34,7 +34,7 @@ const PortfolioListing = ({ title, button, portfolios }) => {
                 className="col-12 col-md-6 col-lg-4 portfolio_list_cards"
                 key={index}
               >
-                <Link href={`/our-work/${portfolio?.attributes?.slug}`}>
+                <Link href={`/project/${portfolio?.attributes?.slug}`}>
                   <figure>
                     <img
                       src={

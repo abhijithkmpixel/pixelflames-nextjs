@@ -5,7 +5,7 @@ import axios from "axios";
 export default async function handler(req, res) {
   const data = await axios
     .get(
-      `${process.env.API_URL}/api/ui-design-services-dubai?populate[0]=*&populate[1]=portfolio_list.listing_image&populate[2]=design_process_card&populate[3]=design_process_card.icon&populate[4]=testimony_row&populate[5]=our_portfolio_button&populate[6]=contact_form`
+      `${process.env.API_URL}/api/portfolio-page?populate[0]=portfolio_banner_image&populate[1]=portfolio_list&populate[2]=get_in_touch_button&populate[3]=portfolio_list.listing_image`
     )
     .then(function (response) {
       // handle success
@@ -16,18 +16,18 @@ export default async function handler(req, res) {
       console.log(error);
       return null
     });
-  // const readyToBegin = await axios
-  //   .get(`${process.env.API_URL}/api/ready-to-begin?populate=*`)
-  //   .then(function (response) {
-  //     // handle success
-  //     return response?.data?.data;
-  //   })
-  //   .catch(function (error) {
-  //     // handle error
-  //     console.log(error);
-  //     return null
+  const readyToBegin = await axios
+    .get(`${process.env.API_URL}/api/ready-to-begin?populate=*`)
+    .then(function (response) {
+      // handle success
+      return response?.data?.data;
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+      return null
 
-  //   });
+    });
   const headerData = await axios
     .get(
       `${process.env.API_URL}/api/header?populate[0]=header_logo_white&populate[1]=header_links.link&populate[2]=header_image&populate[3]=header_contact_number&populate[4]=side_image_link&populate[5]=get_in_touch_button&populate[6]=header_popup_image`
@@ -58,6 +58,6 @@ export default async function handler(req, res) {
     data:  data,
     headerData: headerData,
     footerData: footerData,
-    // readyToBegin: readyToBegin,
+    readyToBegin: readyToBegin,
   });
 }

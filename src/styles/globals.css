@@ -207,3 +207,61 @@ header.desktop_sticky_navbar:not(.inner_page) .top_header ul.contact_phone a {
   background: #e74847;
   height: 4px;
 }
+.about-intro h3,
+.contact address,
+.case-detail p {
+  white-space: break-spaces;
+}
+.project-box .project-content > span {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.color-white .works .custom-btn a {
+  cursor: pointer;
+}
+.potfolio_contact_form .contact-form-popup {
+  background-color: #fff;
+  position: relative;
+}
+.potfolio_contact_form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #e74847;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+.contact h5.empty_add_title {
+  margin-bottom: 20px;
+}
+.porfolio_link {
+  font-size: 24px;
+}
+.page-header .video-bg img {
+  height: 100%;
+  object-fit: cover;
+}
+.case-detail {
+  padding: 60px 0;
+}
+
+.case-detail .content_box ul {
+  margin-bottom: 50px;
+}
+.case-detail .content_box ul li::marker {
+  color: #e74847;
+}
+.case-detail .content_box {
+  margin-bottom: 25px;
+  color: #333;
+  font-size: 18px;
+}
+.porfolio_list_row .portfolio_list_cards a{
+  text-decoration: none;
+}
