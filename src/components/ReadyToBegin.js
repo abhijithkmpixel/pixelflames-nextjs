@@ -1,4 +1,5 @@
 import axios from "axios";
+import Link from "next/link";
 import React, { useEffect } from "react";
 
 const ReadyToBegin = ({ readyToBegin }) => {
@@ -9,10 +10,10 @@ const ReadyToBegin = ({ readyToBegin }) => {
         <h3>{readyToBegin?.attributes?.title}</h3>
         {readyToBegin?.attributes?.cta && (
           <div className="custom-btn">
-            <a href={readyToBegin?.attributes?.cta?.href} target="_self">
+            <Link href={readyToBegin?.attributes?.cta?.href} target="_self">
               {readyToBegin?.attributes?.cta?.text}
               <span></span> <i></i>
-            </a>
+            </Link>
           </div>
         )}
       </div>

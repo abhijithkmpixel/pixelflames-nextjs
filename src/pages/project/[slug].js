@@ -8,7 +8,7 @@ import Head from "next/head";
 import React from "react";
 
 const ProjectDetailPage = ({ headerData, footerData, readyToBegin, data }) => {
-  // console.log(data);
+  console.log(data);
   return (
     <>
       <Head>
@@ -57,7 +57,6 @@ export default ProjectDetailPage;
 
 export async function getServerSideProps(context) {
   const { params } = context;
-  console.log(params.slug);
   const data = await axios
     .get(`${process.env.DOMAIN_URL}/api/project?slug=${params.slug}`)
     .then(function (response) {

@@ -1,7 +1,6 @@
 import React from "react";
 
 const PortfolioPageBuilder = ({ pageBuilder }) => {
-  console.log(pageBuilder);
   return (
     <>
       <section className="case-detail">

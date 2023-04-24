@@ -15,7 +15,6 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ data, headerData, readyToBegin, footerData }) {
-  console.log(data);
   return (
     <>
     <Head>

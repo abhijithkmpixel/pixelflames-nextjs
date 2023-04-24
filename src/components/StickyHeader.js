@@ -17,6 +17,7 @@ const StickyHeader = ({
   button,
   pageBody,
   extLink,
+  titleDark
 }) => {
   const [navOpen, setnavOpen] = useState(false);
   const [mapOpen, setmapOpen] = useState(false);
@@ -164,7 +165,7 @@ const StickyHeader = ({
             {headerNumber?.map((number, index) => {
               return (
                 <li key={index}>
-                  <a href={number?.text}>{number?.text}</a>
+                  <Link href={number?.text}>{number?.text}</Link>
                 </li>
               );
             })}
@@ -284,17 +285,17 @@ const StickyHeader = ({
         {pageTitle || pageDescription ? (
           <div className="page-title">
             <div className="container">
-              {pageTitle && <h1 className="primary_heading">{pageTitle}</h1>}
+              {pageTitle && <h1 className={`primary_heading ${titleDark && 'text-dark'}` } >{pageTitle}</h1>}
               {pageDescription && (
                 <h3 className="secondary_heading">{pageDescription}</h3>
               )}
               {button && (
                 <div className="color-dark mt-4 color-white">
                   <div className="custom-btn dark get-in-touch-service">
-                    <a className="scrollTo" href={button?.href}>
+                    <Link className="scrollTo" href={button?.href}>
                       {button?.text}
                       <span></span> <i></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               )}
@@ -350,13 +351,13 @@ const StickyHeader = ({
                         .classList.toggle("active");
                     }}
                   >
-                    <a href={link?.dropdown_href}>{link?.dropdown_text}</a>
+                    <Link href={link?.dropdown_href}>{link?.dropdown_text}</Link>
                     {link?.link.length > 0 && (
                       <ul className="sub-menu">
                         {link?.link?.map((link, index) => {
                           return (
                             <li key={index}>
-                              <a href={link?.href}>{link?.text}</a>
+                              <Link href={link?.href}>{link?.text}</Link>
                             </li>
                           );
                         })}

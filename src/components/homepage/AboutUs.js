@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const AboutUs = ({ title, description, image, button }) => {
@@ -14,9 +15,9 @@ const AboutUs = ({ title, description, image, button }) => {
             <h3>{title}</h3>
             <p>{description}</p>
             {button && (
-              <a className="customCtaBtn redBtn" href={button?.href}>
+              <Link className="customCtaBtn redBtn" href={button?.href}>
                 {button?.text}
-              </a>
+              </Link>
             )}
           </div>
         </div>

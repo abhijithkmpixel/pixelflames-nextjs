@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect } from "react";
 
 const Banner = ({
@@ -30,9 +31,9 @@ const Banner = ({
             <h2>{title}</h2>
             <h6>{subtitle}</h6>
             {button && (
-              <a className="customCtaBtn" href={button?.href}>
+              <Link className="customCtaBtn" href={button?.href}>
                 {button?.text}
-              </a>
+              </Link>
             )}
           </div>
           <div className="rightSideImage">
@@ -42,9 +43,9 @@ const Banner = ({
               className=""
             />
             {sideImageLink && (
-              <a className="customCtaBtn hoverBtn" href={sideImageLink?.href}>
+              <Link className="customCtaBtn hoverBtn" href={sideImageLink?.href}>
                 {sideImageLink?.text}
-              </a>
+              </Link>
             )}
           </div>
         </div>

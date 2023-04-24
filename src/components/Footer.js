@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Footer = ({ footerData }) => {
@@ -54,7 +55,7 @@ const Footer = ({ footerData }) => {
                 {footerData?.links?.map((link, index) => {
                   return (
                     <li key={index}>
-                      <a href={link?.href}>{link?.text}</a>
+                      <Link href={link?.href}>{link?.text}</Link>
                     </li>
                   );
                 })}
@@ -68,7 +69,7 @@ const Footer = ({ footerData }) => {
                 {footerData?.footer_links?.map((link, index) => {
                   return (
                     <li key={index}>
-                      <a href={link?.href}>{link?.text}</a>
+                      <Link href={link?.href}>{link?.text}</Link>
                     </li>
                   );
                 })}
