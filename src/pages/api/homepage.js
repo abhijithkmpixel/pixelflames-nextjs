@@ -5,7 +5,7 @@ import axios from "axios";
 export default async function handler(req, res) {
   const data = await axios
     .get(
-      `${process.env.API_URL}/api/homepage?populate[0]=banner_backgound_image&populate[1]=banner_background_image_overlay&populate[2]=banner_cta&populate[3]=banner_cta.href&populate[4]=banner_cta.text&populate[5]=side_image&populate[6]=side_image_link&populate[7]=about_us_side_image&populate[8]=about_get_in_touch_button&populate[9]=our_portfolio_see_all_button&populate[10]=portfolios&populate[11]=portfolios.listing_image&populate[12]=testimonial&populate[13]=digitally_empowered_side_image&populate[14]=marketing_slider&populate[15]=marketing_slider.image`
+      `${process.env.API_URL}/api/homepage?populate[0]=banner_backgound_image&populate[1]=banner_background_image_overlay&populate[2]=banner_cta&populate[3]=banner_cta.href&populate[4]=banner_cta.text&populate[5]=side_image&populate[6]=side_image_link&populate[7]=about_us_side_image&populate[8]=about_get_in_touch_button&populate[9]=our_portfolio_see_all_button&populate[10]=portfolios&populate[11]=portfolios.listing_image&populate[12]=testimonial&populate[13]=digitally_empowered_side_image&populate[14]=marketing_slider&populate[15]=marketing_slider.image&populate[16]=seo&populate[17]=seo.seo_image`
     )
     .then(function (response) {
       // handle success

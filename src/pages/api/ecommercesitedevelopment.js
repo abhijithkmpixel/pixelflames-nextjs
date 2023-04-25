@@ -5,7 +5,7 @@ import axios from "axios";
 export default async function handler(req, res) {
   const data = await axios
     .get(
-      `${process.env.API_URL}/api/ecommerce-site-developer-dubai?populate[0]=image&populate[1]=page_buider&populate[2]=page_buider.image&populate[3]=page_buider.editor&populate[4]=get_in_touch_button&`
+      `${process.env.API_URL}/api/ecommerce-site-developer-dubai?populate[0]=image&populate[1]=page_buider&populate[2]=page_buider.image&populate[3]=page_buider.editor&populate[4]=get_in_touch_button&populate[5]=seo&populate[6]=seo.seo_image`
     )
     .then(function (response) {
       // handle success

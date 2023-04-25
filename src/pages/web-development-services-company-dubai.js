@@ -11,12 +11,39 @@ import React from "react";
 const AboutUsPage = ({ headerData, footerData, readyToBegin, aboutus }) => {
   return (
     <>
-      <Head>
-        <title>
-          Web Development Services Company Dubai | Ecommerce Site Developer
-          Dubai
-        </title>
-      </Head>
+      {aboutus?.attributes?.seo && (
+        <Head>
+          <title>{aboutus?.attributes?.seo?.seo_title}</title>
+          <meta
+            name="description"
+            content={aboutus?.attributes?.seo?.seo_description}
+          ></meta>
+          <meta
+            name="image"
+            content={aboutus?.attributes?.seo?.seo_image?.data?.attributes?.url}
+          ></meta>
+          <meta
+            name="og:title"
+            content={aboutus?.attributes?.seo?.seo_title}
+          ></meta>
+          <meta
+            name="og:description"
+            content={aboutus?.attributes?.seo?.seo_description}
+          ></meta>
+          <meta
+            name="og:image"
+            content={aboutus?.attributes?.seo?.seo_image?.data?.attributes?.url}
+          ></meta>
+        </Head>
+      )}
+      {!data?.attributes?.seo && (
+        <Head>
+          <title>
+            Web Development Services Company Dubai | Ecommerce Site Developer
+            Dubai
+          </title>
+        </Head>
+      )}
       {headerData !== null && (
         <StickyHeader
           innerPage={true}

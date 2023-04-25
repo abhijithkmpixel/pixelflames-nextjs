@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   const { slug } = req.query;
 
   const data = await axios
-    .get(`${process.env.API_URL}/api/portfolios?filters[slug][$eq]=${slug}&populate[0]=external_site_link&populate[1]=page_builder&populate[2]=portfolio_banner_image&populate[3]=page_builder.rows&populate[4]=page_builder.image&populate[5]=page_builder.image.image&populate[6]=page_builder.title&populate[7]=page_builder.description&populate[8]=page_builder.side_image`)
+    .get(`${process.env.API_URL}/api/portfolios?filters[slug][$eq]=${slug}&populate[0]=external_site_link&populate[1]=page_builder&populate[2]=portfolio_banner_image&populate[3]=page_builder.rows&populate[4]=page_builder.image&populate[5]=page_builder.image.image&populate[6]=page_builder.title&populate[7]=page_builder.description&populate[8]=page_builder.side_image&populate[9]=seo&populate[10]=seo.seo_image`)
     .then(function (response) {
       // handle success
       return response?.data?.data;

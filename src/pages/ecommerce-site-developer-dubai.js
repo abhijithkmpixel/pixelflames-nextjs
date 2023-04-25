@@ -7,14 +7,41 @@ import Link from "next/link";
 import React from "react";
 
 const EcomerceSiteDeveloperDubaiPage = ({ data, headerData, footerData }) => {
-  console.log(data);
   return (
     <>
-      <Head>
-        <title>
-          Ecommerce site developer Dubai | Web development company Dubai
-        </title>
-      </Head>
+      {data?.attributes?.seo && (
+        <Head>
+          <title>{data?.attributes?.seo?.seo_title}</title>
+          <meta
+            name="description"
+            content={data?.attributes?.seo?.seo_description}
+          ></meta>
+          <meta
+            name="image"
+            content={data?.attributes?.seo?.seo_image?.data?.attributes?.url}
+          ></meta>
+          <meta
+            name="og:title"
+            content={data?.attributes?.seo?.seo_title}
+          ></meta>
+          <meta
+            name="og:description"
+            content={data?.attributes?.seo?.seo_description}
+          ></meta>
+          <meta
+            name="og:image"
+            content={data?.attributes?.seo?.seo_image?.data?.attributes?.url}
+          ></meta>
+        </Head>
+      )}
+      {!data?.attributes?.seo && (
+        <Head>
+          <title>
+            Web Development Services Company Dubai | Ecommerce Site Developer
+            Dubai
+          </title>
+        </Head>
+      )}
       {headerData !== null && (
         <StickyHeader
           innerPage={true}
