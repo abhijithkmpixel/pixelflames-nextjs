@@ -36,7 +36,7 @@ const AboutUsPage = ({ headerData, footerData, readyToBegin, aboutus }) => {
           ></meta>
         </Head>
       )}
-      {!data?.attributes?.seo && (
+      {!aboutus?.attributes?.seo && (
         <Head>
           <title>
             Web Development Services Company Dubai | Ecommerce Site Developer

@@ -18,8 +18,6 @@ const OurWorksList = ({ title, description, button, portfolios }) => {
           {button && (
             <div className="custom-btn">
               <a
-                data-fancybox="contactFormPopup1"
-                data-src="#contactFormPopup1"
                 onClick={toggleContactForm}
               >
                 {button?.text}
@@ -37,6 +35,7 @@ const OurWorksList = ({ title, description, button, portfolios }) => {
             return (
               <li>
                 <PortfolioListCard
+                key={index}
                   title={portfolio?.attributes?.name}
                   description={portfolio?.attributes?.title_description}
                   image={

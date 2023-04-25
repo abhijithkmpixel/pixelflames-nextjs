@@ -103,11 +103,11 @@ const EcomerceSiteDeveloperDubaiPage = ({ data, headerData, footerData }) => {
             )}
             {data?.attributes?.footer_get_in_touch_mail_id && (
               <p>
-                <a
+                <Link
                   href={`mailto:${data?.attributes?.footer_get_in_touch_mail_id}`}
                 >
                   {data?.attributes?.footer_get_in_touch_mail_id}
-                </a>
+                </Link>
               </p>
             )}
             {data?.attributes?.get_in_touch_button && (
