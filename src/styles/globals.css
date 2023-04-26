@@ -408,3 +408,28 @@ header:not(.inner_page).desktop_sticky_navbar .navbar .main-menu ul li a:after {
   padding: 60px 15px;
   /* display:  ; */
 }
+.scroll_to_top svg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  fill: #fff;
+}
+.scroll_to_top {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: fixed;
+  bottom: 50px;
+  right: 25px;
+  background-color: #e74847;
+  padding: 10px;
+  z-index: 100;
+  opacity: 0;
+  transition: 0.2s all ease-in-out;
+}
+@media (max-width: 580px) {
+}

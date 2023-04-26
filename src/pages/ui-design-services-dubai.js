@@ -15,6 +15,7 @@ const UiDesignServicesDubai = ({
   // readyToBegin,
   data,
 }) => {
+
   return (
     <>
       {data?.attributes?.seo && <HeadComponent data={data?.attributes?.seo} />}
@@ -41,7 +42,7 @@ const UiDesignServicesDubai = ({
           getInTouch={headerData?.get_in_touch_button}
           pageTitle={data?.attributes?.title}
           pageDescription={data?.attributes?.description}
-          button={data?.attributes?.our_portfolio_button}
+          button={data?.attributes?.get_a_quote}
         />
       )}
       {data !== null && (

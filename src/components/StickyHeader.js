@@ -37,6 +37,22 @@ const StickyHeader = ({
   function toggleRequestCallbackForm() {
     setrequestCallback(requestCallback ? false : true);
   }
+  function scrollToPos(e) {
+    let tar = e.target;
+    let id = tar.getAttribute("href").split("#")[1];
+    let targetElm = document.getElementById(`${id}`);
+    let top = targetElm.offsetTop;
+    if (targetElm) {
+      e.preventDefault();
+
+      if (typeof window != undefined) {
+        window.scrollTo({
+          top: top - 100,
+          behavior: "smooth",
+        });
+      }
+    }
+  }
   return (
     <>
       <header
@@ -299,7 +315,11 @@ const StickyHeader = ({
               {button && (
                 <div className="color-dark mt-4 color-white">
                   <div className="custom-btn dark get-in-touch-service">
-                    <Link className="scrollTo" href={button?.href}>
+                    <Link
+                      className="scrollTo"
+                      href={button?.href}
+                      onClick={(e) => scrollToPos(e)}
+                    >
                       {button?.text}
                       <span></span> <i></i>
                     </Link>

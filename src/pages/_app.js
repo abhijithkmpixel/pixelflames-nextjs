@@ -18,6 +18,21 @@ export default function App({ Component, pageProps }) {
         } else {
           document.querySelector("body").classList.remove("sticky_header");
         }
+
+        let h = document.documentElement,
+          b = document.body,
+          st = "scrollTop",
+          sh = "scrollHeight";
+
+        let percent =
+          ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 100;
+        if (percent > 70) {
+          document.querySelector(".scroll_to_top").classList.add("opacity-1");
+        } else {
+          document
+            .querySelector(".scroll_to_top")
+            .classList.remove("opacity-1");
+        }
       });
     }
 

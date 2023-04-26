@@ -36,7 +36,7 @@ const OurWorksList = ({ title, description, button, portfolios }) => {
                   title={portfolio?.attributes?.name}
                   description={portfolio?.attributes?.title_description}
                   image={
-                    portfolio?.attributes?.listing_image?.data?.attributes?.url
+                    portfolio?.attributes?.listing_image_large?.data?.attributes?.url
                   }
                   client={portfolio?.attributes?.client_info}
                   slug={portfolio?.attributes?.slug}
