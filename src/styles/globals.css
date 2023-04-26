@@ -400,3 +400,11 @@ header:not(.inner_page).desktop_sticky_navbar .navbar .main-menu ul li a:after {
 .off_grid_column .grid_item .slider .swiper_button_prev {
   align-items: center;
 }
+.page-404 .container {
+  height: 100%;
+}
+.page-404 {
+  min-height: 100vh;
+  padding: 60px 15px;
+  /* display:  ; */
+}
