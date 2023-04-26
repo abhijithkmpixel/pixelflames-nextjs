@@ -194,9 +194,8 @@ header.inner_page li.menu-item-has-children ul.sub-menu li a {
 header.inner_page:not(.desktop_sticky_navbar) {
   position: static;
 }
-header.desktop_sticky_navbar:not(.inner_page) .navbar .main-menu > ul >li >a{
+header.desktop_sticky_navbar:not(.inner_page) .navbar .main-menu > ul > li > a {
   color: #000;
-
 }
 header.desktop_sticky_navbar:not(.inner_page) .top_header ul.contact_phone a {
   color: #000;
@@ -382,12 +381,22 @@ header.inner_page li.menu-item-has-children ul.sub-menu li a:hover {
 #nprogress .peg {
   display: none !important;
 }
-header:not(.inner_page) .navbar .main-menu ul li a:after{
+header:not(.inner_page) .navbar .main-menu ul li a:after {
   background: #fff !important;
 }
-header:not(.inner_page).desktop_sticky_navbar .navbar .main-menu ul li a:after{
+header:not(.inner_page).desktop_sticky_navbar .navbar .main-menu ul li a:after {
   background: #e74847 !important;
 }
-.site_logo{
+.site_logo {
   z-index: 0;
+}
+@media (min-width: 1200px) {
+  .off_grid_column .grid_item .slider .custom_swiper .slick-slider .slick-list {
+    margin: 0 -15px;
+  }
+}
+
+.off_grid_column .grid_item .slider .swiper_button_next,
+.off_grid_column .grid_item .slider .swiper_button_prev {
+  align-items: center;
 }

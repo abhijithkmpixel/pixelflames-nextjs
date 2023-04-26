@@ -17,7 +17,7 @@ const StickyHeader = ({
   button,
   pageBody,
   extLink,
-  titleDark
+  titleDark,
 }) => {
   const [navOpen, setnavOpen] = useState(false);
   const [mapOpen, setmapOpen] = useState(false);
@@ -41,7 +41,7 @@ const StickyHeader = ({
     <>
       <header
         className={
-          innerPage
+          innerPage == true
             ? "header desktop_sticky_navbar inner_page"
             : "header desktop_sticky_navbar"
         }
@@ -159,7 +159,10 @@ const StickyHeader = ({
         </nav>
       </header>
 
-      <header className={innerPage ? "header inner_page" : "header"} id={"top"}>
+      <header
+        className={innerPage == true ? "header inner_page" : "header"}
+        id="top"
+      >
         <div className="top_header">
           <ul className="contact_phone external_link">
             {headerNumber?.map((number, index) => {
@@ -285,7 +288,11 @@ const StickyHeader = ({
         {pageTitle || pageDescription ? (
           <div className="page-title">
             <div className="container">
-              {pageTitle && <h1 className={`primary_heading ${titleDark && 'text-dark'}` } >{pageTitle}</h1>}
+              {pageTitle && (
+                <h1 className={`primary_heading ${titleDark && "text-dark"}`}>
+                  {pageTitle}
+                </h1>
+              )}
               {pageDescription && (
                 <h3 className="secondary_heading">{pageDescription}</h3>
               )}
@@ -351,7 +358,9 @@ const StickyHeader = ({
                         .classList.toggle("active");
                     }}
                   >
-                    <Link href={link?.dropdown_href}>{link?.dropdown_text}</Link>
+                    <Link href={link?.dropdown_href}>
+                      {link?.dropdown_text}
+                    </Link>
                     {link?.link.length > 0 && (
                       <ul className="sub-menu">
                         {link?.link?.map((link, index) => {

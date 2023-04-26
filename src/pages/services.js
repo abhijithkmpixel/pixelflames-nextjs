@@ -1,5 +1,6 @@
 import FeaturedServicesRow from "@/components/FeaturedServicesRow";
 import Footer from "@/components/Footer";
+import HeadComponent from "@/components/HeadComponent";
 import ReadyToBegin from "@/components/ReadyToBegin";
 import StickyHeader from "@/components/StickyHeader";
 import axios from "axios";
@@ -9,31 +10,8 @@ import React from "react";
 const services = ({ headerData, footerData, readyToBegin, data }) => {
   return (
     <>
-      {data?.attributes?.seo && (
-        <Head>
-          <title>{data?.attributes?.seo?.seo_title}</title>
-          <meta
-            name="description"
-            content={data?.attributes?.seo?.seo_description}
-          ></meta>
-          <meta
-            name="image"
-            content={data?.attributes?.seo?.seo_image?.data?.attributes?.url}
-          ></meta>
-          <meta
-            name="og:title"
-            content={data?.attributes?.seo?.seo_title}
-          ></meta>
-          <meta
-            name="og:description"
-            content={data?.attributes?.seo?.seo_description}
-          ></meta>
-          <meta
-            name="og:image"
-            content={data?.attributes?.seo?.seo_image?.data?.attributes?.url}
-          ></meta>
-        </Head>
-      )}
+      {data?.attributes?.seo && <HeadComponent data={data?.attributes?.seo} />}
+
       {!data?.attributes?.seo && (
         <Head>
           <title>

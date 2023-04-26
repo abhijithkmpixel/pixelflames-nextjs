@@ -17,9 +17,7 @@ const OurWorksList = ({ title, description, button, portfolios }) => {
           {description && <p>{description}</p>}
           {button && (
             <div className="custom-btn">
-              <a
-                onClick={toggleContactForm}
-              >
+              <a onClick={toggleContactForm}>
                 {button?.text}
                 <span></span> <i></i>
               </a>
@@ -33,9 +31,8 @@ const OurWorksList = ({ title, description, button, portfolios }) => {
         <ul>
           {portfolios?.map((portfolio, index) => {
             return (
-              <li>
+              <li key={index}>
                 <PortfolioListCard
-                key={index}
                   title={portfolio?.attributes?.name}
                   description={portfolio?.attributes?.title_description}
                   image={

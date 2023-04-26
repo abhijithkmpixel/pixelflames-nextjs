@@ -8,6 +8,9 @@ const ReadyToBegin = ({ readyToBegin }) => {
       <div className="body_content container">
         <span>{readyToBegin?.attributes?.subtitle}</span>
         <h3>{readyToBegin?.attributes?.title}</h3>
+        {readyToBegin?.attributes?.description && (
+          <p>{readyToBegin?.attributes?.description}</p>
+        )}
         {readyToBegin?.attributes?.cta && (
           <div className="custom-btn">
             <Link href={readyToBegin?.attributes?.cta?.href} target="_self">

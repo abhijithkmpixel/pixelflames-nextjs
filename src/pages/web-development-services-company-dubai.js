@@ -1,4 +1,5 @@
 import Footer from "@/components/Footer";
+import HeadComponent from "@/components/HeadComponent";
 import PageHeader from "@/components/PageHeader";
 import ReadyToBegin from "@/components/ReadyToBegin";
 import StickyHeader from "@/components/StickyHeader";
@@ -12,30 +13,9 @@ const AboutUsPage = ({ headerData, footerData, readyToBegin, aboutus }) => {
   return (
     <>
       {aboutus?.attributes?.seo && (
-        <Head>
-          <title>{aboutus?.attributes?.seo?.seo_title}</title>
-          <meta
-            name="description"
-            content={aboutus?.attributes?.seo?.seo_description}
-          ></meta>
-          <meta
-            name="image"
-            content={aboutus?.attributes?.seo?.seo_image?.data?.attributes?.url}
-          ></meta>
-          <meta
-            name="og:title"
-            content={aboutus?.attributes?.seo?.seo_title}
-          ></meta>
-          <meta
-            name="og:description"
-            content={aboutus?.attributes?.seo?.seo_description}
-          ></meta>
-          <meta
-            name="og:image"
-            content={aboutus?.attributes?.seo?.seo_image?.data?.attributes?.url}
-          ></meta>
-        </Head>
+        <HeadComponent data={aboutus?.attributes?.seo} />
       )}
+
       {!aboutus?.attributes?.seo && (
         <Head>
           <title>

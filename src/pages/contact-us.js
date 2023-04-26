@@ -1,4 +1,5 @@
 import Footer from "@/components/Footer";
+import HeadComponent from "@/components/HeadComponent";
 import StickyHeader from "@/components/StickyHeader";
 import axios from "axios";
 import Head from "next/head";
@@ -7,31 +8,7 @@ import React from "react";
 const ContactUsPage = ({ headerData, footerData, data }) => {
   return (
     <>
-      {data?.attributes?.seo && (
-        <Head>
-          <title>{data?.attributes?.seo?.seo_title}</title>
-          <meta
-            name="description"
-            content={data?.attributes?.seo?.seo_description}
-          ></meta>
-          <meta
-            name="image"
-            content={data?.attributes?.seo?.seo_image?.data?.attributes?.url}
-          ></meta>
-          <meta
-            name="og:title"
-            content={data?.attributes?.seo?.seo_title}
-          ></meta>
-          <meta
-            name="og:description"
-            content={data?.attributes?.seo?.seo_description}
-          ></meta>
-          <meta
-            name="og:image"
-            content={data?.attributes?.seo?.seo_image?.data?.attributes?.url}
-          ></meta>
-        </Head>
-      )}
+      {data?.attributes?.seo && <HeadComponent data={data?.attributes?.seo} />}
       {!data?.attributes?.seo && (
         <Head>
           <title>
@@ -123,7 +100,7 @@ const ContactUsPage = ({ headerData, footerData, data }) => {
               <div className="row">
                 {data?.attributes?.addresses?.map((address, index) => {
                   return (
-                    <div className="col-lg-4 col-md-6 ">
+                    <div className="col-lg-4 col-md-6 " key={index}>
                       {address?.title !== null ? (
                         <h5>{address?.title}</h5>
                       ) : (
