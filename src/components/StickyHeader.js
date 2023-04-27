@@ -378,7 +378,7 @@ const StickyHeader = ({
                         .classList.toggle("active");
                     }}
                   >
-                    <Link href={link?.dropdown_href}>
+                    <Link href={link?.dropdown_href} onClick={toggleDesktopNav}>
                       {link?.dropdown_text}
                     </Link>
                     {link?.link.length > 0 && (
@@ -386,7 +386,7 @@ const StickyHeader = ({
                         {link?.link?.map((link, index) => {
                           return (
                             <li key={index}>
-                              <Link href={link?.href}>{link?.text}</Link>
+                              <Link href={link?.href} onClick={toggleDesktopNav}>{link?.text}</Link>
                             </li>
                           );
                         })}
