@@ -3,9 +3,80 @@ import HeadComponent from "@/components/HeadComponent";
 import StickyHeader from "@/components/StickyHeader";
 import axios from "axios";
 import Head from "next/head";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const ContactUsPage = ({ headerData, footerData, data }) => {
+  const [formLoading, setformLoading] = useState(false);
+  const [firstNameError, setfirstNameError] = useState(false);
+  const [lastNameError, setlastNameError] = useState(false);
+  const [emailIdError, setemailIdError] = useState(false);
+  const [subjectError, setsubjectError] = useState(false);
+  const [messageError, setmessageError] = useState(false);
+
+  const firstName = useRef();
+  const lastName = useRef();
+  const emailId = useRef();
+  const subject = useRef();
+  const message = useRef();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    let values = {
+      firstName: firstName?.current?.value,
+      lastName: lastName?.current?.value,
+      email: emailId?.current?.value,
+      subject: subject?.current?.value,
+      message: message?.current?.value,
+    };
+    if (values.firstName == "") {
+      setfirstNameError("Please fill this field!");
+    } else if (values.firstName.length < 2) {
+      setfirstNameError("Minimum character length is 2");
+    } else {
+      setfirstNameError(false);
+    }
+
+    if (values.lastName == "") {
+      setlastNameError("Please fill this field!");
+    } else if (values.lastName.length < 2) {
+      setlastNameError("Minimum character length is 2");
+    } else {
+      setlastNameError(false);
+    }
+    if (values.email == "") {
+      setemailIdError("Please fill this field!");
+    } else if (
+      !/^([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63})$/i.test(
+        values.email
+      )
+    ) {
+      setemailIdError("Invalid email");
+    } else {
+      setemailIdError(false);
+    }
+    if (values.subject == "") {
+      setsubjectError("Please fill this field!");
+    } else {
+      setsubjectError(false);
+    }
+    if (values.message == "") {
+      setmessageError("Please fill this field!");
+    } else {
+      setmessageError(false);
+    }
+    // setTimeout(() => {
+    if (
+      firstNameError !== "" &&
+      lastNameError !== "" &&
+      emailIdError !== "" &&
+      subjectError !== "" &&
+      messageError !== ""
+    ) {
+      console.log(values);
+      setformLoading(true);
+    }
+    // }, 1000);
+  }
   return (
     <>
       {data?.attributes?.seo && <HeadComponent data={data?.attributes?.seo} />}
@@ -43,23 +114,45 @@ const ContactUsPage = ({ headerData, footerData, data }) => {
             <div className="col-md-7">
               <div className="contact-form-wrapper contact-form-page">
                 <div className="contact-form">
-                  <form>
+                  <form onSubmit={handleSubmit} noValidate>
                     <fieldset className="form_field">
                       <label htmlFor="name">
                         Name<span className="required-label">*</span>
                       </label>
                       <div className="row">
                         <div className="col-md-6 col-sm-12 ui-design-right">
-                          <input type="text" id="name" name="name" />
+                          <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            ref={firstName}
+                            onChange={(e) =>
+                              (firstName.current.value = e.target.value)
+                            }
+                          />
                           <label htmlFor="name" className="field-prefix">
                             First
                           </label>
+                          {firstNameError && (
+                            <span className="error">{firstNameError}</span>
+                          )}
                         </div>
                         <div className="col-md-6 col-sm-12 ui-design-right">
-                          <input type="text" id="lastname" name="lastname" />
+                          <input
+                            type="text"
+                            id="lastname"
+                            name="lastname"
+                            ref={lastName}
+                            onChange={(e) =>
+                              (lastName.current.value = e.target.value)
+                            }
+                          />
                           <label htmlFor="lastname" className="field-prefix">
                             Last
                           </label>
+                          {lastNameError && (
+                            <span className="error">{lastNameError}</span>
+                          )}
                         </div>
                       </div>
                     </fieldset>
@@ -67,24 +160,72 @@ const ContactUsPage = ({ headerData, footerData, data }) => {
                       <label htmlFor="emailid">
                         Email<span className="required-label">*</span>
                       </label>
-                      <input type="email" id="emailid" name="emailid" />
+                      <input
+                        type="email"
+                        id="emailid"
+                        name="emailid"
+                        ref={emailId}
+                        onChange={(e) =>
+                          (emailId.current.value = e.target.value)
+                        }
+                      />
+                      {emailIdError && (
+                        <span className="error">{emailIdError}</span>
+                      )}
                     </fieldset>
                     <fieldset className="form_field">
                       <label htmlFor="subject">
                         Subject<span className="required-label">*</span>
                       </label>
-                      <input type="text" id="subject" name="subject" />
+                      <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        ref={subject}
+                        onChange={(e) =>
+                          (subject.current.value = e.target.value)
+                        }
+                      />
+                      {subjectError && (
+                        <span className="error">{subjectError}</span>
+                      )}
                     </fieldset>
-
                     <fieldset className="form_field">
                       <label htmlFor="message">
                         Comment or Message{" "}
                         <span className="required-label">*</span>
                       </label>
-                      <textarea name="" id="" cols="30" rows="10" />
+                      <textarea
+                        name=""
+                        id=""
+                        cols="30"
+                        rows="10"
+                        ref={message}
+                        onChange={(e) =>
+                          (message.current.value = e.target.value)
+                        }
+                      />
+                      {messageError && (
+                        <span className="error">{messageError}</span>
+                      )}
                     </fieldset>
                     <fieldset>
-                      <input type="submit" value={"Send Message"} />
+                      {/* <input type="submit" value={"Send Message"} /> */}
+                      <button
+                        type="submit"
+                        disabled={formLoading}
+                        className={formLoading && "btn"}
+                      >
+                        Send message
+                        {formLoading && (
+                          <div
+                            className="spinner-border spinner-border-sm text-light"
+                            role="status"
+                          >
+                            <span className="sr-only">Loading...</span>
+                          </div>
+                        )}
+                      </button>
                     </fieldset>
                   </form>
                 </div>
