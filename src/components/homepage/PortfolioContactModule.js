@@ -22,50 +22,7 @@ const PortfolioContactModule = ({ active, toggleState }) => {
             Want to start a project or need our expert consultation? We’d love
             to share our expertise with you.
           </h2>
-          {/* <form>
-            <fieldset className="form_field">
-              <label htmlFor="name">
-                Name<span className="required-label">*</span>
-              </label>
-              <div className="row">
-                <div className="col-md-6 col-sm-12 ui-design-right">
-                  <input type="text" id="name" name="name" />
-                  <label htmlFor="name" className="field-prefix">
-                    First
-                  </label>
-                </div>
-                <div className="col-md-6 col-sm-12 ui-design-right">
-                  <input type="text" id="lastname" name="lastname" />
-                  <label htmlFor="lastname" className="field-prefix">
-                    Last
-                  </label>
-                </div>
-              </div>
-            </fieldset>
-            <fieldset className="form_field">
-              <label htmlFor="emailid">
-                Email<span className="required-label">*</span>
-              </label>
-              <input type="email" id="emailid" name="emailid" />
-            </fieldset>
-            <fieldset className="form_field">
-              <label htmlFor="subject">
-                Subject<span className="required-label">*</span>
-              </label>
-              <input type="text" id="subject" name="subject" />
-            </fieldset>
-
-            <fieldset className="form_field">
-              <label htmlFor="message">
-                Comment or Message <span className="required-label">*</span>
-              </label>
-              <textarea name="" id="" cols="30" rows="10" />
-            </fieldset>
-            <fieldset>
-              <input type="submit" value={"Send Message"} />
-            </fieldset>
-          </form> */}
-          <GetInTouchWithUsForm />
+          <GetInTouchWithUsForm toggleState={toggleState} />
         </div>
       </div>
     </div>

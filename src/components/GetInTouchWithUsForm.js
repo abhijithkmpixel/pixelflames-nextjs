@@ -2,7 +2,7 @@ import { message } from "antd";
 import axios from "axios";
 import React, { useRef, useState } from "react";
 
-const GetInTouchWithUsForm = () => {
+const GetInTouchWithUsForm = ({ toggleState }) => {
   const [formLoading, setformLoading] = useState(false);
   const [formError, setformError] = useState(null);
 
@@ -64,6 +64,7 @@ const GetInTouchWithUsForm = () => {
         });
       clearFields();
       message.success(sendMail?.message);
+      toggleState !== undefined && toggleState();
     }
     setformLoading(false);
   };
