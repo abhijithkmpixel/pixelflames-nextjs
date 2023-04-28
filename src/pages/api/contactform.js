@@ -8,9 +8,10 @@ export default function handler(req, res) {
   const msg = {
     to: process.env.MAIL_TO, // Change to your recipient
     from: process.env.MAIL_FROM, // Change to your verified sender
-    subject: `Contact Form Pixelflames : ${values.subject}`,
-    html: `<p><strong>Name: </strong>${values.firstName}  ${values.firstName}</p>
+    subject: `Pixelflames : Contact Form `,
+    html: `<p><strong>Name: </strong>${values.firstName} ${values.firstName}</p>
     <p><strong>Email: </strong>${values.email}</p>
+    <p><strong>Subject: </strong>${values.subject}</p>
     <p><strong>Message: </strong>${values.message}</p>`,
   };
 
