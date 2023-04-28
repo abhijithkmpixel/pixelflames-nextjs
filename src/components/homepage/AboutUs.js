@@ -15,7 +15,10 @@ const AboutUs = ({ title, description, image, button }) => {
             <h3>{title}</h3>
             <p>{description}</p>
             {button && (
-              <Link className="customCtaBtn redBtn" href={button?.href}>
+              <Link
+                className="customCtaBtn redBtn"
+                href={button?.href !== null ? button?.href : "#"}
+              >
                 {button?.text}
               </Link>
             )}

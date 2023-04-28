@@ -91,7 +91,11 @@ const EcomerceSiteDeveloperDubaiPage = ({ data, headerData, footerData }) => {
             {data?.attributes?.get_in_touch_button && (
               <div className="custom-btn dark">
                 <Link
-                  href={data?.attributes?.get_in_touch_button?.href}
+                  href={
+                    data?.attributes?.get_in_touch_button?.href !== null
+                      ? data?.attributes?.get_in_touch_button?.href
+                      : "#"
+                  }
                   target="_self"
                 >
                   {data?.attributes?.get_in_touch_button?.text}

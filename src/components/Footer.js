@@ -78,7 +78,9 @@ const Footer = ({ footerData }) => {
                 {footerData?.links?.map((link, index) => {
                   return (
                     <li key={index}>
-                      <Link href={link?.href}>{link?.text}</Link>
+                      <Link href={link?.href !== null ? link?.href : "#"}>
+                        {link?.text}
+                      </Link>
                     </li>
                   );
                 })}
@@ -92,7 +94,9 @@ const Footer = ({ footerData }) => {
                 {footerData?.footer_links?.map((link, index) => {
                   return (
                     <li key={index}>
-                      <Link href={link?.href}>{link?.text}</Link>
+                      <Link href={link?.href !== null ? link?.href : "#"}>
+                        {link?.text}
+                      </Link>
                     </li>
                   );
                 })}

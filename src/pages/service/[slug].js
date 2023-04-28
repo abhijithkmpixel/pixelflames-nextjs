@@ -79,7 +79,13 @@ const ServiceDetailPage = ({ data, headerData, footerData, readyToBegin }) => {
               )}
               {data?.attributes?.get_in_touch_button && (
                 <div className="custom-btn dark get-in-touch-service">
-                  <Link href={data?.attributes?.get_in_touch_button?.href}>
+                  <Link
+                    href={
+                      data?.attributes?.get_in_touch_button?.href !== null
+                        ? data?.attributes?.get_in_touch_button?.href
+                        : "#"
+                    }
+                  >
                     {data?.attributes?.get_in_touch_button?.text}
                     <span></span> <i></i>
                   </Link>

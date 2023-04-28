@@ -95,7 +95,11 @@ const StickyHeader = ({
                       link?.link.length > 0 && "menu-item-has-children"
                     }
                   >
-                    <Link href={link?.dropdown_href}>
+                    <Link
+                      href={
+                        link?.dropdown_href !== null ? link?.dropdown_href : "#"
+                      }
+                    >
                       {link?.dropdown_text}
                     </Link>
                     {link?.link.length > 0 && (
@@ -103,7 +107,11 @@ const StickyHeader = ({
                         {link?.link?.map((link, index) => {
                           return (
                             <li key={index}>
-                              <Link href={link?.href}>{link?.text}</Link>
+                              <Link
+                                href={link?.href !== null ? link?.href : "#"}
+                              >
+                                {link?.text}
+                              </Link>
                             </li>
                           );
                         })}
@@ -184,7 +192,9 @@ const StickyHeader = ({
             {headerNumber?.map((number, index) => {
               return (
                 <li key={index}>
-                  <Link href={number?.text}>{number?.text}</Link>
+                  <Link href={number?.href !== null ? number?.href : "#"}>
+                    {number?.text}
+                  </Link>
                 </li>
               );
             })}
@@ -223,7 +233,11 @@ const StickyHeader = ({
                       link?.link.length > 0 && "menu-item-has-children"
                     }
                   >
-                    <Link href={link?.dropdown_href}>
+                    <Link
+                      href={
+                        link?.dropdown_href !== null ? link?.dropdown_href : "#"
+                      }
+                    >
                       {link?.dropdown_text}
                     </Link>
                     {link?.link.length > 0 && (
@@ -231,7 +245,11 @@ const StickyHeader = ({
                         {link?.link?.map((link, index) => {
                           return (
                             <li key={index}>
-                              <Link href={link?.href}>{link?.text}</Link>
+                              <Link
+                                href={link?.href !== null ? link?.href : "#"}
+                              >
+                                {link?.text}
+                              </Link>
                             </li>
                           );
                         })}
@@ -317,7 +335,7 @@ const StickyHeader = ({
                   <div className="custom-btn dark get-in-touch-service">
                     <Link
                       className="scrollTo"
-                      href={button?.href}
+                      href={button?.href !== null ? button?.href : "#"}
                       onClick={(e) => scrollToPos(e)}
                     >
                       {button?.text}
@@ -329,7 +347,7 @@ const StickyHeader = ({
               {extLink && (
                 <Link
                   className="porfolio_link"
-                  href={extLink?.href}
+                  href={extLink?.href !== null ? extLink?.href : "#"}
                   target="_blank"
                 >
                   {extLink?.text}
@@ -378,7 +396,12 @@ const StickyHeader = ({
                         .classList.toggle("active");
                     }}
                   >
-                    <Link href={link?.dropdown_href} onClick={toggleDesktopNav}>
+                    <Link
+                      href={
+                        link?.dropdown_href !== null ? link?.dropdown_href : "#"
+                      }
+                      onClick={toggleDesktopNav}
+                    >
                       {link?.dropdown_text}
                     </Link>
                     {link?.link.length > 0 && (
@@ -386,7 +409,12 @@ const StickyHeader = ({
                         {link?.link?.map((link, index) => {
                           return (
                             <li key={index}>
-                              <Link href={link?.href} onClick={toggleDesktopNav}>{link?.text}</Link>
+                              <Link
+                                href={link?.href !== null ? link?.href : "#"}
+                                onClick={toggleDesktopNav}
+                              >
+                                {link?.text}
+                              </Link>
                             </li>
                           );
                         })}

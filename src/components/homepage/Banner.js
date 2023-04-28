@@ -21,7 +21,7 @@ const Banner = ({
 
       <img
         src={bgOverlay?.data?.attributes?.url}
-        alt=""
+        alt="banner image overlay image"
         className="bannerBgOverlay"
       />
       <div className="headerContentWrapper">
@@ -31,7 +31,10 @@ const Banner = ({
             <h2>{title}</h2>
             <h6>{subtitle}</h6>
             {button && (
-              <Link className="customCtaBtn" href={button?.href}>
+              <Link
+                className="customCtaBtn"
+                href={button?.href !== null ? button?.href : "#"}
+              >
                 {button?.text}
               </Link>
             )}
@@ -43,7 +46,10 @@ const Banner = ({
               className=""
             />
             {sideImageLink && (
-              <Link className="customCtaBtn hoverBtn" href={sideImageLink?.href}>
+              <Link
+                className="customCtaBtn hoverBtn"
+                href={sideImageLink?.href !== null ? sideImageLink?.href : "#"}
+              >
                 {sideImageLink?.text}
               </Link>
             )}

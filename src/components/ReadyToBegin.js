@@ -13,7 +13,14 @@ const ReadyToBegin = ({ readyToBegin }) => {
         )}
         {readyToBegin?.attributes?.cta && (
           <div className="custom-btn">
-            <Link href={readyToBegin?.attributes?.cta?.href} target="_self">
+            <Link
+              href={
+                readyToBegin?.attributes?.cta?.href !== null
+                  ? readyToBegin?.attributes?.cta?.href
+                  : "#"
+              }
+              target="_self"
+            >
               {readyToBegin?.attributes?.cta?.text}
               <span></span> <i></i>
             </Link>

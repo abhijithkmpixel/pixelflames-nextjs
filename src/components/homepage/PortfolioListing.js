@@ -9,7 +9,10 @@ const PortfolioListing = ({ title, button, portfolios }) => {
           {title && <h2>{title}</h2>}
 
           {button && (
-            <Link href={button?.href} className="goto_inner min_990">
+            <Link
+              href={button?.href !== null ? button?.href : "#"}
+              className="goto_inner min_990"
+            >
               {button?.text}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +57,10 @@ const PortfolioListing = ({ title, button, portfolios }) => {
           })}
         </div>
         {button && (
-          <Link href={button?.href} className="goto_inner max_990">
+          <Link
+            href={button?.href !== null ? button?.href : "#"}
+            className="goto_inner max_990"
+          >
             {button?.text}
             <svg
               xmlns="http://www.w3.org/2000/svg"
