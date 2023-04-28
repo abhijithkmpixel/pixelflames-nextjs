@@ -1,7 +1,14 @@
 import Link from "next/link";
 import React from "react";
 
-const PortfolioListCard = ({ title, description, image, client, slug }) => {
+const PortfolioListCard = ({
+  title,
+  description,
+  image,
+  client,
+  slug,
+  technology,
+}) => {
   return (
     <div className="project-box">
       <figure className="project-image">
@@ -16,22 +23,7 @@ const PortfolioListCard = ({ title, description, image, client, slug }) => {
           <Link href={`/project/${slug}`}>{title} </Link>
         </h3>
         <h6> Client : {client}</h6>
-
-        <small>
-          {/* <?php
-                            foreach ( $term_list as $term) {
-                              if(next($term_list)) {
-                             
-                                echo $term->name.' | '; 
-                              }
-                                 // This is the last $element
-                              elseif(!next($term_list))
-                              {
-                                echo $term->name;
-                              }
-                            ?> 
-                        <?php } ?>  */}
-        </small>
+        {technology && <small className="mb-2">{technology}</small>}
         {description && <span>{description}</span>}
       </div>
     </div>

@@ -5,7 +5,7 @@ import axios from "axios";
 export default async function handler(req, res) {
   const data = await axios
     .get(
-      `${process.env.API_URL}/api/portfolio-page?populate[0]=portfolio_banner_image&populate[1]=portfolio_list&populate[2]=get_in_touch_button&populate[3]=portfolio_list.listing_image&populate[4]=seo&populate[5]=seo.seo_image&populate[6]=portfolio_list.listing_image_large`
+      `${process.env.API_URL}/api/portfolio-page?populate[0]=portfolio_banner_image&populate[1]=portfolio_list&populate[2]=get_in_touch_button&populate[3]=portfolio_list.listing_image&populate[4]=seo&populate[5]=seo.seo_image&populate[6]=portfolio_list.listing_image_large&populate[7]=portfolio_list.technology_used`
     )
     .then(function (response) {
       // handle success
@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     .catch(function (error) {
       // handle error
       console.log(error);
-      return null
+      return null;
     });
   const readyToBegin = await axios
     .get(`${process.env.API_URL}/api/ready-to-begin?populate=*`)
@@ -25,8 +25,7 @@ export default async function handler(req, res) {
     .catch(function (error) {
       // handle error
       console.log(error);
-      return null
-
+      return null;
     });
   const headerData = await axios
     .get(
@@ -39,8 +38,7 @@ export default async function handler(req, res) {
     .catch(function (error) {
       // handle error
       console.log(error);
-      return null
-
+      return null;
     });
   const footerData = await axios
     .get(
@@ -55,7 +53,7 @@ export default async function handler(req, res) {
       console.log(error);
     });
   res.status(200).json({
-    data:  data,
+    data: data,
     headerData: headerData,
     footerData: footerData,
     readyToBegin: readyToBegin,

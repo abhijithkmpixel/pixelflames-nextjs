@@ -40,6 +40,7 @@ const OurWorksList = ({ title, description, button, portfolios }) => {
                   }
                   client={portfolio?.attributes?.client_info}
                   slug={portfolio?.attributes?.slug}
+                  technology={portfolio?.attributes?.technology_used}
                 />
               </li>
             );
