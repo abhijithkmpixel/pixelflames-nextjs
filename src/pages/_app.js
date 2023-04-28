@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import Router from "next/router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
-
+import "antd/dist/reset.css";
 // NProgress.configure({ showSpinner: false ,parent: '#loader'});
 export default function App({ Component, pageProps }) {
   useEffect(() => {

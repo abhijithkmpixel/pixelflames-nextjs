@@ -14,7 +14,6 @@ const EcommerceDevelopmentServicesDubaiPage = ({
   footerData,
   data,
 }) => {
-  // console.log(data);
   return (
     <>
       {data?.attributes?.seo && <HeadComponent data={data?.attributes?.seo} />}

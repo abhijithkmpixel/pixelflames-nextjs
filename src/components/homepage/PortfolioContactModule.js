@@ -1,4 +1,5 @@
 import React from "react";
+import GetInTouchWithUsForm from "../GetInTouchWithUsForm";
 
 const PortfolioContactModule = ({ active, toggleState }) => {
   return (
@@ -21,7 +22,7 @@ const PortfolioContactModule = ({ active, toggleState }) => {
             Want to start a project or need our expert consultation? We’d love
             to share our expertise with you.
           </h2>
-          <form>
+          {/* <form>
             <fieldset className="form_field">
               <label htmlFor="name">
                 Name<span className="required-label">*</span>
@@ -63,7 +64,8 @@ const PortfolioContactModule = ({ active, toggleState }) => {
             <fieldset>
               <input type="submit" value={"Send Message"} />
             </fieldset>
-          </form>
+          </form> */}
+          <GetInTouchWithUsForm />
         </div>
       </div>
     </div>

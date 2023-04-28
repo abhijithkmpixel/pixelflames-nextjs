@@ -490,3 +490,36 @@ header:not(.inner_page).desktop_sticky_navbar .navbar .main-menu ul li a:after {
   p {
   margin-bottom: 20px;
 }
+.ant-message-notice span {
+  font-size: 20px;
+  font-weight: 400 !important;
+}
+.ant-message-notice .anticon {
+  font-size: 23px !important;
+}
+.ant-message-notice {
+  margin-top: 80px;
+}
+.ant-message-notice-content {
+  padding: 10px 20px !important;
+}
+.get_in_touch_form .modal-content button[type="submit"],
+.contact-form button[type="submit"] {
+  color: #fff;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 300;
+  text-transform: uppercase;
+  height: 49px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f63440;
+  /* float: right; */
+  margin-top: 20px;
+  transition: 0.2s all ease-in-out;
+}
+.ant-message {
+  z-index: 3000;
+}

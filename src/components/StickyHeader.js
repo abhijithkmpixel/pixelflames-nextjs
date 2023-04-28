@@ -1,5 +1,7 @@
+import { message } from "antd";
+import axios from "axios";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 const StickyHeader = ({
   logo,
@@ -19,6 +21,13 @@ const StickyHeader = ({
   extLink,
   titleDark,
 }) => {
+  const [formLoading, setformLoading] = useState(false);
+  const [formError, setformError] = useState(null);
+
+  const name = useRef();
+  const emailId = useRef();
+  const phonenumber = useRef();
+
   const [navOpen, setnavOpen] = useState(false);
   const [mapOpen, setmapOpen] = useState(false);
   const [requestCallback, setrequestCallback] = useState(false);
@@ -53,6 +62,57 @@ const StickyHeader = ({
       }
     }
   }
+  function clearFields() {
+    emailId.current.value = "";
+    name.current.value = "";
+    phonenumber.current.value = "";
+  }
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    setformLoading(true);
+
+    let values = {
+      name: name?.current?.value,
+      email: emailId?.current?.value,
+      phone: phonenumber?.current?.value,
+    };
+
+    if (values.name == "") {
+      setformError("Please fill first name field!");
+    } else if (values.name.length < 2) {
+      setformError("Minimum character length for first name is 2");
+    } else if (values.email == "") {
+      setformError("Please fill email field!");
+    } else if (
+      !/^([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,63})$/i.test(
+        values.email
+      )
+    ) {
+      setformError("Invalid email");
+    } else if (values.phone == "") {
+      setformError("Please fill phone field!");
+    } else if (!/^([0-9-+]{7,20})$/i.test(values.phone)) {
+      setformError("Invalid phone number");
+    } else {
+      setformError(null);
+      const sendMail = await axios
+        .post(`/api/requestacallback`, { values })
+        .then(function (response) {
+          // handle success
+          return response?.data;
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        });
+      clearFields();
+      message.success(sendMail?.message);
+      toggleRequestCallbackForm();
+    }
+
+    setformLoading(false);
+  };
+
   return (
     <>
       <header
@@ -497,29 +557,72 @@ const StickyHeader = ({
             </button>
             <div className="modal-body">
               <h6>Request a call back</h6>
-              <form>
+              <form onSubmit={(e) => submitHandler(e)}>
                 <div className="row align-items-center">
                   <div className="col-md-7 col-sm-12">
                     <fieldset className="form_field">
                       <label htmlFor="name">
                         Name<span>*</span>
                       </label>
-                      <input type="text" id="name" name="name" />
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        ref={name}
+                        onChange={(e) => {
+                          name.current.value = e.target.value;
+                        }}
+                      />
                     </fieldset>
                     <fieldset className="form_field">
                       <label htmlFor="email">
                         Email<span>*</span>
                       </label>
-                      <input type="email" id="email" name="email" />
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        ref={emailId}
+                        onChange={(e) => {
+                          emailId.current.value = e.target.value;
+                        }}
+                      />
                     </fieldset>
                     <fieldset className="form_field">
                       <label htmlFor="phone">
                         Phone<span>*</span>
                       </label>
-                      <input type="tel" id="phone" name="phone" />
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        ref={phonenumber}
+                        onChange={(e) => {
+                          phonenumber.current.value = e.target.value;
+                        }}
+                      />
                     </fieldset>
                     <fieldset className="mt-3 mb-2">
-                      <input type="submit" value={"SEND"} />
+                      <button
+                        type="submit"
+                        disabled={formLoading}
+                        className={formLoading && "btn"}
+                      >
+                        Send
+                        {formLoading && (
+                          <div
+                            className="spinner-border spinner-border-sm text-light ml-2"
+                            role="status"
+                          >
+                            {/* <span className="sr-only">Loading...</span> */}
+                          </div>
+                        )}
+                      </button>
+                      {formError && (
+                        <div className="form_error text-danger fs-2 mt-2">
+                          {formError}
+                        </div>
+                      )}
                     </fieldset>
                   </div>
                   <div className="col-md-5 col-sm-12">
