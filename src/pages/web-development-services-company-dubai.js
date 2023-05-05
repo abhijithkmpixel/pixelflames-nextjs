@@ -5,6 +5,7 @@ import ReadyToBegin from "@/components/ReadyToBegin";
 import StickyHeader from "@/components/StickyHeader";
 import { AboutIntro } from "@/components/homepage/AboutIntro";
 import HowWeWork from "@/components/homepage/HowWeWork";
+import TeamListing from "@/components/homepage/TeamListing";
 import axios from "axios";
 import Head from "next/head";
 import React from "react";
@@ -60,6 +61,13 @@ const AboutUsPage = ({ headerData, footerData, readyToBegin, aboutus }) => {
             description={aboutus?.attributes?.how_we_work_description}
             works={aboutus?.attributes?.how_we_work_row}
           />
+          {aboutus?.attributes?.show_team_grid && (
+            <TeamListing
+              title={aboutus?.attributes?.team_title}
+              description={aboutus?.attributes?.team_description}
+              team={aboutus?.attributes?.team_members}
+            />
+          )}
           {aboutus?.attributes?.show_get_in_touch && (
             <ReadyToBegin readyToBegin={readyToBegin} />
           )}

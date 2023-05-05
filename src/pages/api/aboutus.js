@@ -5,7 +5,7 @@ import axios from "axios";
 export default async function handler(req, res) {
   const aboutUs = await axios
     .get(
-      `${process.env.API_URL}/api/about-us?populate[0]=*&populate[1]=about_us_banner_image&populate[2]=how_we_work_row&populate[3]=how_we_work_row.icon&populate[4]=seo&populate[5]=seo.seo_image`
+      `${process.env.API_URL}/api/about-us?populate[0]=*&populate[1]=about_us_banner_image&populate[2]=how_we_work_row&populate[3]=how_we_work_row.icon&populate[4]=seo&populate[5]=seo.seo_image&populate[6]=team_title&populate[7]=team_description&populate[8]=team_members&populate[9]=team_members.image`
     )
     .then(function (response) {
       // handle success
