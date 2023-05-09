@@ -1,5 +1,5 @@
 {
-  "name": "pixelflames-nextjs",
+  "name": "pixelflames",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -20,5 +20,6 @@
     "react-dom": "18.2.0",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1"
-  }
+  },
+  "cacheDirectories": [".next/cache"]
 }

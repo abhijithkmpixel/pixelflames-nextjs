@@ -33,7 +33,7 @@ const FeaturedServiceStatic = ({ title, description, services }) => {
                       <figcaption>
                         <span>
                           {index < 10 ? "0" : null}
-                          {index}
+                          {index + 1}
                         </span>
                         <h4>{service?.title}</h4>
                       </figcaption>

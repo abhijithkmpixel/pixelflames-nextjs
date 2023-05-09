@@ -11,7 +11,7 @@ const ServiceCard = ({ title, image, slug, index }) => {
             <figcaption>
               <span>
                 {index < 10 ? "0" : null}
-                {index}
+                {index + 1}
               </span>
               <h4>{title}</h4>
             </figcaption>
