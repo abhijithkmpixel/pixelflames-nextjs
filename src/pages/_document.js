@@ -20,12 +20,12 @@ export default function Document() {
         <link rel="icon" href="/favicon.ico" />
 
         {/* styles from site public  */}
-        <link rel="stylesheet" href="/styles/styles.min.css" />
+        {/* <link rel="stylesheet" href="/styles/styles.min.css" />
         <link rel="stylesheet" href="/styles/maintenance.css" />
         <link rel="stylesheet" href="/styles/custom-styles.css" />
         <link rel="stylesheet" href="/styles/custom_wp.css" />
         <link rel="stylesheet" href="/styles/custom.css" />
-        <link rel="stylesheet" href="/styles/revamp.css" />
+        <link rel="stylesheet" href="/styles/revamp.css" /> */}
         {/* styles from site public  end*/}
       </Head>
       <body className={"page-template-page-home-new_"}>

@@ -2,13 +2,19 @@ import Footer from "@/components/Footer";
 import StickyHeader from "@/components/StickyHeader";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "@/styles/globals.css";
 import { useEffect } from "react";
 import Router from "next/router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import "antd/dist/reset.css";
 import Image from "next/image";
+import '@/assets/styles/styles.min.css'
+import '@/assets/styles/maintenance.css'
+import '@/assets/styles/custom-styles.css'
+import '@/assets/styles/custom_wp.css'
+import '@/assets/styles/custom.css'
+import '@/assets/styles/revamp.css'
+import "@/styles/globals.css";
 // NProgress.configure({ showSpinner: false ,parent: '#loader'});
 export default function App({ Component, pageProps }) {
   useEffect(() => {
