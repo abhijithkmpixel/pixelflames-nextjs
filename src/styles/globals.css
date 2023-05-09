@@ -552,10 +552,14 @@ header:not(.inner_page).desktop_sticky_navbar .navbar .main-menu ul li a:after {
   .contact-form-popup {
     padding: 30px 15px;
   }
-  .contact-form-popup .contact-form h2{
+  .contact-form-popup .contact-form h2 {
     font-size: 20px;
     margin-bottom: 20px;
   }
+}
+.navigation-menu .inner .sides .showMap img {
+  width: 26px;
+  height: 26px;
 }
 .potfolio_contact_form .contact-form-popup {
   max-height: 100vh;

@@ -519,7 +519,7 @@ const StickyHeader = ({
                   height={394}
                 />
               </picture>
-              <div id="#map" onClick={toggleMapView}>
+              <div id="#map" className="showMap" onClick={toggleMapView}>
                 <Image
                   src="/images/icon-map-marker.svg"
                   alt="location marker icon"
