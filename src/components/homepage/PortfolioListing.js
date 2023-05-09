@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -39,12 +40,14 @@ const PortfolioListing = ({ title, button, portfolios }) => {
               >
                 <Link href={`/project/${portfolio?.attributes?.slug}`}>
                   <figure>
-                    <img
+                    <Image
                       src={
                         portfolio?.attributes?.listing_image?.data?.attributes
                           ?.url
                       }
                       alt={portfolio?.attributes?.name}
+                      width={363}
+                      height={525}
                     />
                   </figure>
                   <h5>{portfolio?.attributes?.name}</h5>

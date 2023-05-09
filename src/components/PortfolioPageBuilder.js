@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const PortfolioPageBuilder = ({ pageBuilder }) => {
@@ -11,7 +12,12 @@ const PortfolioPageBuilder = ({ pageBuilder }) => {
                 return (
                   <div className="col-lg-12" key={index}>
                     {b?.title && <h5>{b?.title}</h5>}
-                    {b?.description && <div className="content_box" dangerouslySetInnerHTML={{__html:b?.description}}></div>}
+                    {b?.description && (
+                      <div
+                        className="content_box"
+                        dangerouslySetInnerHTML={{ __html: b?.description }}
+                      ></div>
+                    )}
                   </div>
                 );
               } else if (b?.__component == "portfolio.split-column") {
@@ -36,10 +42,12 @@ const PortfolioPageBuilder = ({ pageBuilder }) => {
                   <div className="col-12" key={index}>
                     <figure>
                       <picture>
-                        <img
+                        <Image
                           className=" lazyloaded"
                           src={b?.image?.data?.attributes?.url}
                           alt="image"
+                          width={1170}
+                          height={800}
                         />
                       </picture>
                     </figure>
@@ -57,10 +65,12 @@ const PortfolioPageBuilder = ({ pageBuilder }) => {
                         <div className="col-lg-6" key={index}>
                           <figure className="split_image">
                             <picture>
-                              <img
+                              <Image
                                 className=" lazyloaded"
                                 src={img?.image?.data?.attributes?.url}
                                 alt="image"
+                                width={570}
+                                height={448}
                               />
                             </picture>
                           </figure>
@@ -84,10 +94,12 @@ const PortfolioPageBuilder = ({ pageBuilder }) => {
                       <div className="col-lg-4">
                         <figure className="related_image">
                           <picture>
-                            <img
+                            <Image
                               className=" lazyloaded"
                               src={b?.side_image?.data?.attributes?.url}
                               alt="image"
+                              width={370}
+                              height={530}
                             />
                           </picture>
                         </figure>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const TeamListing = ({ title, description, team }) => {
@@ -16,9 +17,11 @@ const TeamListing = ({ title, description, team }) => {
               <div className="col-lg-4 col-md-6" key={index}>
                 <figure>
                   <picture>
-                    <img
+                    <Image
                       src={m?.image?.data?.attributes?.url}
                       alt={"member" + m.name}
+                      width={370}
+                      height={447}
                     />
                   </picture>
                   <figcaption>

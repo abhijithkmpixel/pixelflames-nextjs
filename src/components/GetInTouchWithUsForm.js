@@ -154,6 +154,9 @@ const GetInTouchWithUsForm = ({ toggleState }) => {
                         <span className="error">{messageError}</span>
                       )} */}
         </fieldset>
+        {formError && (
+          <div className="form_error text-danger fs-2 mt-2">{formError}</div>
+        )}
         <fieldset>
           {/* <input type="submit" value={"Send Message"} /> */}
           <button
@@ -173,9 +176,6 @@ const GetInTouchWithUsForm = ({ toggleState }) => {
           </button>
         </fieldset>
       </form>
-      {formError && (
-        <div className="form_error text-danger fs-2 mt-2">{formError}</div>
-      )}
     </>
   );
 };

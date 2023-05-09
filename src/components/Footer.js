@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -31,9 +32,11 @@ const Footer = ({ footerData }) => {
         <div className="row">
           <div className="col-lg-4 ">
             <figure className="logo">
-              <img
+              <Image
                 src={footerData?.footer_logo?.data?.attributes?.url}
                 alt="image"
+                width={160}
+                height={42}
               />
             </figure>
           </div>
@@ -60,11 +63,13 @@ const Footer = ({ footerData }) => {
                 rel="noreferrer noopener"
                 href="https://www.goodfirms.co/"
               >
-                <img
+                <Image
                   style={{ width: 243 }}
                   src="https://assets.goodfirms.co/badges/normal-badge/view-profile.svg"
                   title="View Our Profile on GoodFirms"
                   alt="View Our Profile on GoodFirms"
+                  width={243}
+                  height={190}
                 />
               </a>
             </div>

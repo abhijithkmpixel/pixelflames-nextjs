@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -7,7 +8,7 @@ const ServiceCard = ({ title, image, slug, index }) => {
       <Link href={`/service/${slug}`}>
         <figure className="">
           <div className="figcaption-inner">
-            <img src={image} alt={title} />
+            <Image src={image} alt={title} width={80} height={80} />
             <figcaption>
               <span>
                 {index < 10 ? "0" : null}

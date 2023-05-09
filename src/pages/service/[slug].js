@@ -5,6 +5,7 @@ import ReadyToBegin from "@/components/ReadyToBegin";
 import StickyHeader from "@/components/StickyHeader";
 import axios from "axios";
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -112,11 +113,13 @@ const ServiceDetailPage = ({ data, headerData, footerData, readyToBegin }) => {
                 <div className="col-md-4 col-sm-4 col-xs-12 related-items">
                   <Link href={`/project/${p?.attributes?.slug}`}>
                     <picture>
-                      <img
+                      <Image
                         src={
                           p?.attributes?.listing_image?.data?.attributes?.url
                         }
                         alt={p?.attributes?.name}
+                        width={370}
+                        height={345}
                       />
                     </picture>
                   </Link>

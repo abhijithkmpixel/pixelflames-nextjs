@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -14,7 +15,7 @@ const PortfolioListCard = ({
       <figure className="project-image">
         <Link href={`/project/${slug}`}>
           <picture>
-            <img src={image} alt={title} />
+            <Image src={image} alt={title} width={555} height={517} />
           </picture>
         </Link>
       </figure>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const HowWeWork = ({ title, description, works }) => {
@@ -15,9 +16,11 @@ const HowWeWork = ({ title, description, works }) => {
             return (
               <div className="col-lg-3 col-md-6" key={index}>
                 <figure className="">
-                  <img
+                  <Image
                     src={work?.icon?.data?.attributes?.url}
                     alt={work?.title}
+                    width={80}
+                    height={80}
                   />
                 </figure>
                 <article data-mh="work-flow">

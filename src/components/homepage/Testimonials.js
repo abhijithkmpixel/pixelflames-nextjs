@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import Slider from "react-slick";
 
@@ -5,7 +6,7 @@ const Testimonials = ({ title, subtitle, testimonials }) => {
   var settings = {
     dots: true,
     infinite: true,
-    arrows:false,
+    arrows: false,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -28,16 +29,20 @@ const Testimonials = ({ title, subtitle, testimonials }) => {
                       <div className="content-wrap">
                         <div className="testimonials_quote">
                           <span className="quote_left">
-                            <img
+                            <Image
                               src="/images/left-quote.png"
                               alt="left quote"
+                              width={20}
+                              height={20}
                             />
                           </span>
                           <p>{content?.testimonial_description}</p>
                           <span className="quote_right">
-                            <img
+                            <Image
                               src="/images/right-quote.png"
                               alt="right quote"
+                              width={20}
+                              height={20}
                             />
                           </span>
                         </div>

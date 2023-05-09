@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useRef } from "react";
 import Slider from "react-slick";
 function SampleNextArrow(props) {
@@ -63,7 +64,7 @@ const Offgrid = ({
               data-scroll
               data-scroll-speed="2"
             >
-              <img src={image1} alt={title1} />
+              <Image src={image1} alt={title1} width={488} height={731} />
             </div>
           </div>
         </div>
@@ -94,9 +95,11 @@ const Offgrid = ({
                         }}
                         key={index}
                       >
-                        <img
+                        <Image
                           src={slide?.image?.data?.attributes?.url}
                           alt={slide?.title}
+                          width={570}
+                          height={570}
                         />
                         <div className="slide-inner text-white">
                           <h4 className="text-white">{slide?.title}</h4>

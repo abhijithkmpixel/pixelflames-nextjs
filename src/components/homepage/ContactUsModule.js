@@ -106,6 +106,11 @@ const ContactUsModule = ({ title }) => {
                   onChange={(e) => (messages.current.value = e.target.value)}
                 ></textarea>
               </fieldset>
+              {formError && (
+                <div className="form_error text-danger fs-2 mt-2">
+                  {formError}
+                </div>
+              )}
               <fieldset>
                 <button
                   type="submit"
@@ -122,11 +127,6 @@ const ContactUsModule = ({ title }) => {
                     </div>
                   )}
                 </button>
-                {formError && (
-                  <div className="form_error text-danger fs-2 mt-2">
-                    {formError}
-                  </div>
-                )}
               </fieldset>
             </form>
           </div>

@@ -3,6 +3,11 @@ body header {
   width: 100%;
   z-index: 101;
 }
+img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
 header:not(.desktop_sticky_navbar),
 body header:not(.desktop_sticky_navbar) {
   position: absolute;
@@ -447,6 +452,9 @@ header:not(.inner_page).desktop_sticky_navbar .navbar .main-menu ul li a:after {
   transition: 0.2s all ease-in-out;
 }
 @media (max-width: 580px) {
+  .pre_loader img {
+    width: 220px;
+  }
 }
 
 .contact-form .error {
@@ -522,4 +530,34 @@ header:not(.inner_page).desktop_sticky_navbar .navbar .main-menu ul li a:after {
 }
 .ant-message {
   z-index: 3000;
+}
+.case-detail figure img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+@media (max-width: 990px) {
+  .project-box .project-image {
+    height: 380px;
+  }
+  .potfolio_contact_form .contact-form-popup::-webkit-scrollbar {
+    width: 5px;
+  }
+  .potfolio_contact_form .contact-form-popup::-webkit-scrollbar-thumb {
+    width: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+@media (max-width: 580px) {
+  .contact-form-popup {
+    padding: 30px 15px;
+  }
+  .contact-form-popup .contact-form h2{
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+}
+.potfolio_contact_form .contact-form-popup {
+  max-height: 100vh;
+  overflow-y: auto;
 }

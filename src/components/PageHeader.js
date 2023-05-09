@@ -1,11 +1,17 @@
+import Image from "next/image";
 import React from "react";
 
-const PageHeader = ({image}) => {
+const PageHeader = ({ image }) => {
   return (
     <section className="page-header">
       <div className="video-bg">
         <picture>
-          <img src={image} />
+          <Image
+            src={image}
+            width={1920}
+            height={760}
+            alt="featured banner image"
+          />
         </picture>
       </div>
     </section>

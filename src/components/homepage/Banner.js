@@ -13,16 +13,19 @@ const Banner = ({
 }) => {
   return (
     <section className="customHomeBannerDev">
-      <img
+      <Image
         src={bg?.data?.attributes?.url}
         alt="background"
         className="bannerBgImage"
+        width={1920}
+        height={572}
       />
-
-      <img
+      <Image
         src={bgOverlay?.data?.attributes?.url}
         alt="banner image overlay image"
         className="bannerBgOverlay"
+        width={1920}
+        height={572}
       />
       <div className="headerContentWrapper">
         <div className="container">
@@ -40,10 +43,11 @@ const Banner = ({
             )}
           </div>
           <div className="rightSideImage">
-            <img
+            <Image
               src={sideImage?.data?.attributes?.url}
               alt="laptop"
-              className=""
+              width={480}
+              height={514}
             />
             {sideImageLink && (
               <Link

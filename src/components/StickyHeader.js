@@ -1,5 +1,6 @@
 import { message } from "antd";
 import axios from "axios";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useRef, useState } from "react";
 
@@ -126,13 +127,13 @@ const StickyHeader = ({
           <div className="logo">
             {" "}
             <Link href="/">
-              <img width="100%" height="100%" src={logo} alt="logo" />
+              <Image width={170} height={48} src={logo} alt="logo" />
             </Link>
           </div>
           <div className="logo light">
             {" "}
             <Link href="/">
-              <img width="100%" height="100%" src={logoWhite} alt="logo" />
+              <Image width={170} height={48} src={logoWhite} alt="logo" />
             </Link>
           </div>
           {/* <!-- end logo --> */}
@@ -194,9 +195,9 @@ const StickyHeader = ({
             >
               <span>{getInTouch?.text}</span>
 
-              <img
-                width="100%"
-                height="100%"
+              <Image
+                width={35}
+                height={35}
                 src={"/images/req_call.png"}
                 alt="call"
               />
@@ -264,13 +265,13 @@ const StickyHeader = ({
           <div className="logo">
             {" "}
             <Link href="/">
-              <img width="100%" height="100%" src={logo} alt="logo" />
+              <Image width={175} height={48} src={logo} alt="logo" />
             </Link>
           </div>
           <div className="logo light">
             {" "}
             <Link href="/">
-              <img width="100%" height="100%" src={logoWhite} alt="logo" />
+              <Image width={175} height={48} src={logoWhite} alt="logo" />
             </Link>
           </div>
           {/* <!-- end logo --> */}
@@ -332,9 +333,9 @@ const StickyHeader = ({
             >
               <span>{getInTouch?.text}</span>
 
-              <img
-                width="100%"
-                height="100%"
+              <Image
+                width={35}
+                height={35}
                 src={"/images/req_call.png"}
                 alt="call"
               />
@@ -424,7 +425,7 @@ const StickyHeader = ({
           <div className="logo">
             {" "}
             <Link href="/">
-              <img width="100%" height="100%" src={logo} alt="logo" />
+              <Image width={183} height={48} src={logo} alt="logo" />
             </Link>
           </div>
         </div>
@@ -511,12 +512,19 @@ const StickyHeader = ({
 
             <figure>
               <picture>
-                <img src={popupImage} alt="popup image" />
+                <Image
+                  src={popupImage}
+                  alt="popup image"
+                  width={657}
+                  height={394}
+                />
               </picture>
               <div id="#map" onClick={toggleMapView}>
-                <img
+                <Image
                   src="/images/icon-map-marker.svg"
                   alt="location marker icon"
+                  width={24}
+                  height={24}
                 />
               </div>
             </figure>
@@ -602,6 +610,11 @@ const StickyHeader = ({
                         }}
                       />
                     </fieldset>
+                    {formError && (
+                      <div className="form_error text-danger fs-2 mt-2">
+                        {formError}
+                      </div>
+                    )}
                     <fieldset className="mt-3 mb-2">
                       <button
                         type="submit"
@@ -618,18 +631,15 @@ const StickyHeader = ({
                           </div>
                         )}
                       </button>
-                      {formError && (
-                        <div className="form_error text-danger fs-2 mt-2">
-                          {formError}
-                        </div>
-                      )}
                     </fieldset>
                   </div>
                   <div className="col-md-5 col-sm-12">
                     <figure>
-                      <img
+                      <Image
                         src="/images/capacitive-touch-sensing-icon.png"
                         alt="touch icon"
+                        width={307}
+                        height={307}
                       />
                     </figure>
                   </div>

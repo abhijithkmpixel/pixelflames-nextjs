@@ -4,6 +4,7 @@ import PageHeader from "@/components/PageHeader";
 import StickyHeader from "@/components/StickyHeader";
 import axios from "axios";
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -55,9 +56,11 @@ const EcomerceSiteDeveloperDubaiPage = ({ data, headerData, footerData }) => {
                   } else if (p?.__component == "portfolio.image") {
                     return (
                       <div className="col-12" key={index}>
-                        <img
+                        <Image
                           src={p?.image?.data?.attributes?.url}
                           alt="image"
+                          width={1170}
+                          height={530}
                         />
                       </div>
                     );

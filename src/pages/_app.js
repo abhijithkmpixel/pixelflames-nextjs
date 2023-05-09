@@ -8,6 +8,7 @@ import Router from "next/router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import "antd/dist/reset.css";
+import Image from "next/image";
 // NProgress.configure({ showSpinner: false ,parent: '#loader'});
 export default function App({ Component, pageProps }) {
   useEffect(() => {
@@ -62,7 +63,12 @@ export default function App({ Component, pageProps }) {
       {/* <Header /> */}
       {/* <StickyHeader stickyHeader={true} /> */}
       <div className="pre_loader">
-        <img src="/images/logo.png" alt="pixelflames logo" />
+        <Image
+          src="/images/logo.png"
+          alt="pixelflames logo"
+          width={250}
+          height={67}
+        />
         <div className="loader" id="loader">
           <span></span>
         </div>

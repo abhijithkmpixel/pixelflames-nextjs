@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -8,7 +9,7 @@ const AboutUs = ({ title, description, image, button }) => {
         <div className="row aboutUsInnerWrapper">
           <div className="col-12 col-lg-5 d-flex justify-content-center align-items-center">
             <div className="aboutUsSideImage">
-              <img src={image} alt="pixelflames " />
+              <Image src={image} alt="pixelflames" width={164} height={164} />
             </div>
           </div>
           <div className="col-12 col-lg-7">

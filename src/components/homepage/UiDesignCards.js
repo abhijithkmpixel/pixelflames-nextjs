@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const UiDesignCards = ({ title, description, cards }) => {
@@ -18,10 +19,12 @@ const UiDesignCards = ({ title, description, cards }) => {
               return (
                 <div className="col-12 col-md-6 col-lg-4" key={index}>
                   <div className="card card-body">
-                    <img
+                    <Image
                       className="card-img-top"
                       src={card?.icon?.data?.attributes?.url}
                       alt="Card image cap"
+                      width={93}
+                      height={93}
                     />
                     <div className="card-body card-wrapper">
                       <h3 className="title_sec">{card?.title}</h3>

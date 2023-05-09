@@ -1,5 +1,6 @@
 import React from "react";
 import ServiceCard from "./cards/ServiceCard";
+import Image from "next/image";
 
 const FeaturedServiceStatic = ({ title, description, services }) => {
   return (
@@ -20,14 +21,18 @@ const FeaturedServiceStatic = ({ title, description, services }) => {
                   <figure className="">
                     <div className="figcaption-inner">
                       {service?.icon ? (
-                        <img
+                        <Image
                           src={service?.icon?.data?.attributes?.url}
                           alt={service?.title}
+                          width={80}
+                          height={80}
                         />
                       ) : (
-                        <img
+                        <Image
                           src={service?.image?.data?.attributes?.url}
                           alt={service?.title}
+                          width={80}
+                          height={80}
                         />
                       )}
                       <figcaption>
