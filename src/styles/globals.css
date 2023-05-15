@@ -64,6 +64,9 @@ body header:not(.desktop_sticky_navbar) {
   align-items: center;
   justify-content: center;
 }
+.testimonial-wrap .swiper-wrapper {
+  flex-flow: column;
+}
 .testimonial-wrap .slick-dots {
   position: static;
   margin-top: 30px;
