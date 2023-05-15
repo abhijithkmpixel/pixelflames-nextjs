@@ -460,14 +460,8 @@ header:not(.inner_page).desktop_sticky_navbar .navbar .main-menu ul li a:after {
 .contact-form .error {
   color: red;
 }
-.page-template-page-contact
-  .contact-form-wrapper
-  .form_field
-  input.border-danger,
-.page-template-page-contact
-  .contact-form-wrapper
-  .form_field
-  textarea.border-danger {
+.page-template-page-contact .contact-form-wrapper .form_field input.border-danger,
+.page-template-page-contact .contact-form-wrapper .form_field textarea.border-danger {
   border-color: red !important;
 }
 .contact-form-wrapper button[type="submit"] .spinner-border {
@@ -491,11 +485,7 @@ header:not(.inner_page).desktop_sticky_navbar .navbar .main-menu ul li a:after {
 .titles {
   padding-right: 0;
 }
-.page-template-page-mobile-application-development-services
-  .ui-design
-  .card-body
-  .card-wrapper
-  p {
+.page-template-page-mobile-application-development-services .ui-design .card-body .card-wrapper p {
   margin-bottom: 20px;
 }
 .ant-message-notice span {
@@ -564,4 +554,10 @@ header:not(.inner_page).desktop_sticky_navbar .navbar .main-menu ul li a:after {
 .potfolio_contact_form .contact-form-popup {
   max-height: 100vh;
   overflow-y: auto;
+}
+.contact-form button[type="submit"] {
+  background-color: #e74847;
+}
+.footer .logo {
+  width: max-content;
 }

@@ -39,7 +39,7 @@ export default async function handler(req, res) {
     });
   const footerData = await axios
     .get(
-      `${process.env.API_URL}/api/footer?populate[0]=footer_logo&populate[1]=locations&populate[2]=say_hello&populate[3]=footer_links&populate[4]=links`
+      `${process.env.API_URL}/api/footer?populate[0]=footer_logo&populate[1]=locations&populate[2]=say_hello&populate[3]=footer_links&populate[4]=links&populate[5]=copy_right_text&`
     )
     .then(function (response) {
       // handle success

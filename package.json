@@ -21,5 +21,5 @@
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1"
   },
-  "cacheDirectories": [".next/cache"]
+  // "cacheDirectories": [".next/cache"]
 }

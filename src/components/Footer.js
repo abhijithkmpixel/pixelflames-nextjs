@@ -107,8 +107,7 @@ const Footer = ({ footerData }) => {
                 })}
               </ul>
               <span>
-                {" "}
-                2023 Pixelflames Technologies Pvt Ltd - All rights Reserved
+                {new Date().getFullYear()} {footerData?.copy_right_text}
               </span>
             </div>
           </div>
