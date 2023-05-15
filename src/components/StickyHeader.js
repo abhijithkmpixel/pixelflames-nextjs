@@ -33,7 +33,7 @@ const StickyHeader = ({
   const [mapOpen, setmapOpen] = useState(false);
   const [requestCallback, setrequestCallback] = useState(false);
   function toggleDesktopNav() {
-    setnavOpen(navOpen ? false : true);
+    setnavOpen(navOpen == true ? false : true);
     if (typeof window !== "undefined") {
       document.querySelector("body").classList.toggle("overflow-hidden");
       document.querySelectorAll(".sub-menu").forEach((elm) => {
@@ -123,15 +123,13 @@ const StickyHeader = ({
             : "header desktop_sticky_navbar"
         }
       >
-        <nav className={navOpen ? "navbar light" : "navbar"}>
+        <nav className={navOpen == true ? "navbar light" : "navbar"}>
           <div className="logo">
-            {" "}
             <Link href="/">
               <Image width={170} height={48} src={logo} alt="logo" />
             </Link>
           </div>
           <div className="logo light">
-            {" "}
             <Link href="/">
               <Image width={170} height={48} src={logoWhite} alt="logo" />
             </Link>
@@ -153,7 +151,7 @@ const StickyHeader = ({
                   <li
                     key={index}
                     className={
-                      link?.link.length > 0 && "menu-item-has-children"
+                      link?.link.length > 0 ? "menu-item-has-children" : ""
                     }
                   >
                     <Link
@@ -261,15 +259,13 @@ const StickyHeader = ({
             })}
           </ul>
         </div>
-        <nav className={navOpen ? "navbar light" : "navbar"}>
+        <nav className={navOpen == true ? "navbar light" : "navbar"}>
           <div className="logo">
-            {" "}
             <Link href="/">
               <Image width={175} height={48} src={logo} alt="logo" />
             </Link>
           </div>
           <div className="logo light">
-            {" "}
             <Link href="/">
               <Image width={175} height={48} src={logoWhite} alt="logo" />
             </Link>
@@ -291,7 +287,7 @@ const StickyHeader = ({
                   <li
                     key={index}
                     className={
-                      link?.link.length > 0 && "menu-item-has-children"
+                      link?.link.length > 0 ? "menu-item-has-children" : ""
                     }
                   >
                     <Link
@@ -384,7 +380,9 @@ const StickyHeader = ({
           <div className="page-title">
             <div className="container">
               {pageTitle && (
-                <h1 className={`primary_heading ${titleDark && "text-dark"}`}>
+                <h1
+                  className={`primary_heading ${titleDark ? "text-dark" : ""}`}
+                >
                   {pageTitle}
                 </h1>
               )}
@@ -420,7 +418,11 @@ const StickyHeader = ({
       </header>
 
       {/* desktop menu  */}
-      <div className={navOpen ? "navigation-menu active" : "navigation-menu"}>
+      <div
+        className={
+          navOpen == true ? "navigation-menu active" : "navigation-menu"
+        }
+      >
         <div className="site_logo">
           <div className="logo">
             {" "}
@@ -449,7 +451,7 @@ const StickyHeader = ({
                   <li
                     key={index}
                     className={
-                      link?.link.length > 0 && "menu-item-has-children"
+                      link?.link?.length > 0 ? "menu-item-has-children" : ""
                     }
                     onClick={(e) => {
                       e.target
@@ -488,7 +490,7 @@ const StickyHeader = ({
           </div>
           {/* <!-- end side-menu --> */}
           <div className="sides external_link">
-            <div id="map" className={mapOpen && "d-flex"}>
+            <div id="map" className={mapOpen ? "d-flex" : ""}>
               <div className="close_btn" onClick={toggleMapView}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -619,7 +621,7 @@ const StickyHeader = ({
                       <button
                         type="submit"
                         disabled={formLoading}
-                        className={formLoading && "btn"}
+                        className={formLoading ? "btn" : ""}
                       >
                         Send
                         {formLoading && (
