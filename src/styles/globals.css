@@ -571,3 +571,38 @@ header:not(.inner_page).desktop_sticky_navbar .navbar .main-menu ul li a:after {
 .footer .logo {
   width: max-content;
 }
+@media (max-width: 1200px) {
+  /* .navbar .main-menu,
+  .get_in_touch_btn,
+  header .top_header,
+  .location_btn {
+    display: none;
+  }
+  .navbar .custom_hamburger {
+    display: flex !important;
+    width: 50px;
+    height: 50px;
+  }
+  .navbar .burger {
+    width: auto;
+    height: auto;
+  } */
+  .navbar.light .custom_hamburger span.hamburger_line:first-child {
+    transform: rotate(45deg) translate(3px, 2px) scale(1) !important;
+  }
+  .navbar.light .custom_hamburger span.hamburger_line:nth-child(2) {
+    display: none;
+  }
+  .navbar.light .custom_hamburger span.hamburger_line:nth-child(3) {
+    transform: rotate(-45deg) translate(2px, -2px) scale(1) !important;
+  }
+  header:not(.desktop_sticky_navbar),
+  body header:not(.desktop_sticky_navbar) {
+    z-index: 50;
+  }
+}
+@media (max-width: 990px) {
+  .header .navbar {
+    padding: 15px;
+  }
+}
