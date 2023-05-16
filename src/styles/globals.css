@@ -571,22 +571,24 @@ header:not(.inner_page).desktop_sticky_navbar .navbar .main-menu ul li a:after {
 .footer .logo {
   width: max-content;
 }
+@media (max-width: 1200px) and (min-width: 991px) {
+  .get_in_touch_btn img {
+    display: block;
+    width: 20px;
+    height: auto;
+  }
+}
 @media (max-width: 1200px) {
-  /* .navbar .main-menu,
-  .get_in_touch_btn,
-  header .top_header,
-  .location_btn {
+  .navigation-menu .close_btn {
+    z-index: 10;
+  }
+  .get_in_touch_btn span {
     display: none;
   }
-  .navbar .custom_hamburger {
-    display: flex !important;
-    width: 50px;
-    height: 50px;
+
+  .top_header {
+    display: none;
   }
-  .navbar .burger {
-    width: auto;
-    height: auto;
-  } */
   .navbar.light .custom_hamburger span.hamburger_line:first-child {
     transform: rotate(45deg) translate(3px, 2px) scale(1) !important;
   }
