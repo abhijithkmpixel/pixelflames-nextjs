@@ -598,12 +598,15 @@ header:not(.inner_page).desktop_sticky_navbar .navbar .main-menu ul li a:after {
   .navbar.light .custom_hamburger span.hamburger_line:nth-child(3) {
     transform: rotate(-45deg) translate(2px, -2px) scale(1) !important;
   }
-  header:not(.desktop_sticky_navbar),
-  body header:not(.desktop_sticky_navbar) {
+  /* header:not(.desktop_sticky_navbar, .inner_page) {
     z-index: 50;
-  }
+  } */
 }
 @media (max-width: 990px) {
+  body header:not(.desktop_sticky_navbar),
+  header:not(.desktop_sticky_navbar) {
+    z-index: 50;
+  }
   .header .navbar {
     padding: 15px;
   }
