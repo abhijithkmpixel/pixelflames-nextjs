@@ -162,7 +162,7 @@ const GetInTouchWithUsForm = ({ toggleState }) => {
           <button
             type="submit"
             disabled={formLoading}
-            className={formLoading && "btn"}
+            className={formLoading == true ? "btn" : ""}
           >
             Send message
             {formLoading && (
