@@ -79,7 +79,7 @@ const ContactUsPage = ({ headerData, footerData, data }) => {
           </div>
 
           <section className="page-header contact-map">
-            <iframe src={data?.attributes?.map_address}></iframe>
+            <iframe src={data?.attributes?.map_address} loading="lazy"></iframe>
           </section>
         </>
       )}

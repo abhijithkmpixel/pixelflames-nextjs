@@ -507,6 +507,7 @@ const StickyHeader = ({
                 src={mapLink}
                 width="100%"
                 height="450"
+                loading="lazy"
                 style={{ border: 0 }}
                 allowFullScreen=""
               ></iframe>
