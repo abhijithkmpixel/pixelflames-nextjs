@@ -549,6 +549,13 @@ header:not(.inner_page).desktop_sticky_navbar .navbar .main-menu ul li a:after {
     font-size: 20px;
     margin-bottom: 20px;
   }
+  .modal.fade .modal-dialog {
+    transform: translate(0) !important;
+  }
+  .get_in_touch_form .modal-content {
+    max-height: 100vh;
+    overflow-y: auto;
+  }
 }
 .navigation-menu .inner .sides .showMap img {
   width: 26px;
