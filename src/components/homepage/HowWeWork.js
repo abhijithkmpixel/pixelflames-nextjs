@@ -18,7 +18,11 @@ const HowWeWork = ({ title, description, works }) => {
                 <figure className="">
                   <Image
                     src={work?.icon?.data?.attributes?.url}
-                    alt={work?.title}
+                    alt={
+                      work?.icon?.data?.attributes?.alternativeText
+                        ? work?.icon?.data?.attributes?.alternativeText
+                        : work?.title
+                    }
                     width={80}
                     height={80}
                   />

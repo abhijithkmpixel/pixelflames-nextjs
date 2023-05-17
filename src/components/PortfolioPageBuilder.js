@@ -45,7 +45,11 @@ const PortfolioPageBuilder = ({ pageBuilder }) => {
                         <Image
                           className=" lazyloaded"
                           src={b?.image?.data?.attributes?.url}
-                          alt="image"
+                          alt={
+                            b?.image?.data?.attributes?.alternativeText
+                              ? b?.image?.data?.attributes?.alternativeText
+                              : "image"
+                          }
                           width={1170}
                           height={800}
                         />
@@ -68,7 +72,12 @@ const PortfolioPageBuilder = ({ pageBuilder }) => {
                               <Image
                                 className=" lazyloaded"
                                 src={img?.image?.data?.attributes?.url}
-                                alt="image"
+                                alt={
+                                  img?.image?.data?.attributes?.alternativeText
+                                    ? img?.image?.data?.attributes
+                                        ?.alternativeText
+                                    : "image"
+                                }
                                 width={570}
                                 height={448}
                               />
@@ -97,7 +106,12 @@ const PortfolioPageBuilder = ({ pageBuilder }) => {
                             <Image
                               className=" lazyloaded"
                               src={b?.side_image?.data?.attributes?.url}
-                              alt="image"
+                              alt={
+                                b?.side_image?.data?.attributes?.alternativeText
+                                  ? b?.side_image?.data?.attributes
+                                      ?.alternativeText
+                                  : "image"
+                              }
                               width={370}
                               height={530}
                             />

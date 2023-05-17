@@ -45,7 +45,13 @@ const PortfolioListing = ({ title, button, portfolios }) => {
                         portfolio?.attributes?.listing_image?.data?.attributes
                           ?.url
                       }
-                      alt={portfolio?.attributes?.name}
+                      alt={
+                        portfolio?.attributes?.listing_image?.data?.attributes
+                          ?.alternativeText
+                          ? portfolio?.attributes?.listing_image?.data
+                              ?.attributes?.alternativeText
+                          : portfolio?.attributes?.name
+                      }
                       width={363}
                       height={525}
                     />

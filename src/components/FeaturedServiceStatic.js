@@ -23,14 +23,23 @@ const FeaturedServiceStatic = ({ title, description, services }) => {
                       {service?.icon ? (
                         <Image
                           src={service?.icon?.data?.attributes?.url}
-                          alt={service?.title}
+                          alt={
+                            service?.icon?.data?.attributes?.alternativeText
+                              ? service?.icon?.data?.attributes?.alternativeText
+                              : service?.title
+                          }
                           width={80}
                           height={80}
                         />
                       ) : (
                         <Image
                           src={service?.image?.data?.attributes?.url}
-                          alt={service?.title}
+                          alt={
+                            service?.image?.data?.attributes?.alternativeText
+                              ? service?.image?.data?.attributes
+                                  ?.alternativeText
+                              : service?.title
+                          }
                           width={80}
                           height={80}
                         />

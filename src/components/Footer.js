@@ -34,7 +34,11 @@ const Footer = ({ footerData }) => {
             <figure className="logo">
               <Image
                 src={footerData?.footer_logo?.data?.attributes?.url}
-                alt="image"
+                alt={
+                  footerData?.footer_logo?.data?.attributes?.alternativeText
+                    ? footerData?.footer_logo?.data?.attributes?.alternativeText
+                    : "image"
+                }
                 width={160}
                 height={42}
               />

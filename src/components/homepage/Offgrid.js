@@ -97,7 +97,11 @@ const Offgrid = ({
                       >
                         <Image
                           src={slide?.image?.data?.attributes?.url}
-                          alt={slide?.title}
+                          alt={
+                            slide?.image?.data?.attributes?.alternativeText
+                              ? slide?.image?.data?.attributes?.alternativeText
+                              : slide?.title
+                          }
                           width={570}
                           height={570}
                         />

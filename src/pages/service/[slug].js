@@ -110,14 +110,20 @@ const ServiceDetailPage = ({ data, headerData, footerData, readyToBegin }) => {
             </div>
             {data?.attributes?.related_projects?.data?.map((p, index) => {
               return (
-                <div className="col-md-4 col-sm-4 col-xs-12 related-items">
+                <div className="col-md-4 col-sm-4 col-xs-12 related-items" key={index}>
                   <Link href={`/project/${p?.attributes?.slug}`}>
                     <picture>
                       <Image
                         src={
                           p?.attributes?.listing_image?.data?.attributes?.url
                         }
-                        alt={p?.attributes?.name}
+                        alt={
+                          p?.attributes?.listing_image?.data?.attributes
+                            ?.alternativeText
+                            ? p?.attributes?.listing_image?.data?.attributes
+                                ?.alternativeText
+                            : p?.attributes?.name
+                        }
                         width={370}
                         height={345}
                       />

@@ -126,12 +126,12 @@ const StickyHeader = ({
         <nav className={navOpen == true ? "navbar light" : "navbar"}>
           <div className="logo">
             <Link href="/">
-              <Image width={170} height={48} src={logo} alt="logo" />
+              <Image width={170} height={48} src={logo} alt="pixelflames logo" />
             </Link>
           </div>
           <div className="logo light">
             <Link href="/">
-              <Image width={170} height={48} src={logoWhite} alt="logo" />
+              <Image width={170} height={48} src={logoWhite} alt="pixelflames logo" />
             </Link>
           </div>
           {/* <!-- end logo --> */}
@@ -197,7 +197,7 @@ const StickyHeader = ({
                 width={35}
                 height={35}
                 src={"/images/req_call.png"}
-                alt="call"
+                alt="call icon"
               />
             </button>
           )}
@@ -262,12 +262,12 @@ const StickyHeader = ({
         <nav className={navOpen == true ? "navbar light" : "navbar"}>
           <div className="logo">
             <Link href="/">
-              <Image width={175} height={48} src={logo} alt="logo" />
+              <Image width={175} height={48} src={logo} alt="pixelflames logo" />
             </Link>
           </div>
           <div className="logo light">
             <Link href="/">
-              <Image width={175} height={48} src={logoWhite} alt="logo" />
+              <Image width={175} height={48} src={logoWhite} alt="pixelflames logo" />
             </Link>
           </div>
           {/* <!-- end logo --> */}
@@ -333,7 +333,7 @@ const StickyHeader = ({
                 width={35}
                 height={35}
                 src={"/images/req_call.png"}
-                alt="call"
+                alt="call icon"
               />
             </button>
           )}
@@ -427,7 +427,7 @@ const StickyHeader = ({
           <div className="logo">
             {" "}
             <Link href="/">
-              <Image width={183} height={48} src={logo} alt="logo" />
+              <Image width={183} height={48} src={logo} alt="pixelflames logo" />
             </Link>
           </div>
         </div>

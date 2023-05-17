@@ -115,7 +115,7 @@ const ContactUsModule = ({ title }) => {
                 <button
                   type="submit"
                   disabled={formLoading}
-                  className={formLoading && "btn"}
+                  className={formLoading == true ? "btn" : ""}
                 >
                   send message
                   {formLoading && (

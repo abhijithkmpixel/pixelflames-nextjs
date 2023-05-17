@@ -58,7 +58,11 @@ const EcomerceSiteDeveloperDubaiPage = ({ data, headerData, footerData }) => {
                       <div className="col-12" key={index}>
                         <Image
                           src={p?.image?.data?.attributes?.url}
-                          alt="image"
+                          alt={
+                            p?.image?.data?.attributes?.alternativeText
+                              ? p?.image?.data?.attributes?.alternativeText
+                              : "image"
+                          }
                           width={1170}
                           height={530}
                         />

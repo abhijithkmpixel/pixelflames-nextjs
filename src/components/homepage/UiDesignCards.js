@@ -22,7 +22,11 @@ const UiDesignCards = ({ title, description, cards }) => {
                     <Image
                       className="card-img-top"
                       src={card?.icon?.data?.attributes?.url}
-                      alt="Card image cap"
+                      alt={
+                        card?.icon?.data?.attributes?.alternativeText
+                          ? card?.icon?.data?.attributes?.alternativeText
+                          : "Card image"
+                      }
                       width={93}
                       height={93}
                     />

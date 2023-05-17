@@ -18,7 +18,7 @@ import "@/styles/globals.css";
 // NProgress.configure({ showSpinner: false ,parent: '#loader'});
 export default function App({ Component, pageProps }) {
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== undefined) {
       document.addEventListener("scroll", function () {
         if (window.scrollY > 400) {
           document.querySelector("body").classList.add("sticky_header");
@@ -74,6 +74,7 @@ export default function App({ Component, pageProps }) {
           alt="pixelflames logo"
           width={250}
           height={67}
+          priority
         />
         <div className="loader" id="loader">
           <span></span>

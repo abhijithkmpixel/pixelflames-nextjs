@@ -19,7 +19,11 @@ const TeamListing = ({ title, description, team }) => {
                   <picture>
                     <Image
                       src={m?.image?.data?.attributes?.url}
-                      alt={"member" + m.name}
+                      alt={
+                        m?.image?.data?.attributes?.alternativeText
+                          ? m?.image?.data?.attributes?.alternativeText
+                          : m?.name
+                      }
                       width={370}
                       height={447}
                     />

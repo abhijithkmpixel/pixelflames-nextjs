@@ -15,10 +15,15 @@ const Banner = ({
     <section className="customHomeBannerDev">
       <Image
         src={bg?.data?.attributes?.url}
-        alt="background"
+        alt={
+          bg?.data?.attributes?.alternativeText
+            ? bg?.data?.attributes?.alternativeText
+            : "Banner background image"
+        }
         className="bannerBgImage"
         width={1920}
         height={572}
+        priority
       />
       <Image
         src={bgOverlay?.data?.attributes?.url}
@@ -26,6 +31,7 @@ const Banner = ({
         className="bannerBgOverlay"
         width={1920}
         height={572}
+        priority
       />
       <div className="headerContentWrapper">
         <div className="container">
@@ -45,9 +51,14 @@ const Banner = ({
           <div className="rightSideImage">
             <Image
               src={sideImage?.data?.attributes?.url}
-              alt="laptop"
+              alt={
+                sideImage?.data?.attributes?.alternativeText
+                  ? sideImage?.data?.attributes?.alternativeText
+                  : "banner side featured image"
+              }
               width={480}
               height={514}
+              priority
             />
             {sideImageLink && (
               <Link
