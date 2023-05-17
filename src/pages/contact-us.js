@@ -1,22 +1,12 @@
-// import Footer from "@/components/Footer";
+import Footer from "@/components/Footer";
 import HeadComponent from "@/components/HeadComponent";
-// import StickyHeader from "@/components/StickyHeader";
+import StickyHeader from "@/components/StickyHeader";
 import axios from "axios";
 import Head from "next/head";
 import React, { useEffect, useRef, useState } from "react";
 import { message } from "antd";
-import dynamic from "next/dynamic";
-// import GetInTouchWithUsForm from "@/components/GetInTouchWithUsForm";
+import GetInTouchWithUsForm from "@/components/GetInTouchWithUsForm";
 
-const Footer = dynamic(() => import('@/components/Footer'), {
-  loading: () => <p>Loading...</p>,
-});
-const StickyHeader = dynamic(() => import('@/components/StickyHeader'), {
-  loading: () => <p>Loading...</p>,
-});
-const GetInTouchWithUsForm = dynamic(() => import('@/components/GetInTouchWithUsForm'), {
-  loading: () => <p>Loading...</p>,
-});
 const ContactUsPage = ({ headerData, footerData, data }) => {
   return (
     <>

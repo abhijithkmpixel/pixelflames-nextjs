@@ -1,29 +1,13 @@
-// import Footer from "@/components/Footer";
+import Footer from "@/components/Footer";
 import HeadComponent from "@/components/HeadComponent";
-// import PageHeader from "@/components/PageHeader";
-// import ReadyToBegin from "@/components/ReadyToBegin";
-// import StickyHeader from "@/components/StickyHeader";
-// import OurWorksList from "@/components/homepage/OurWorksList";
+import PageHeader from "@/components/PageHeader";
+import ReadyToBegin from "@/components/ReadyToBegin";
+import StickyHeader from "@/components/StickyHeader";
+import OurWorksList from "@/components/homepage/OurWorksList";
 import axios from "axios";
-import dynamic from "next/dynamic";
 import Head from "next/head";
 import React from "react";
 
-const Footer = dynamic(() => import('@/components/Footer'), {
-  loading: () => <p>Loading...</p>,
-});
-const StickyHeader = dynamic(() => import('@/components/StickyHeader'), {
-  loading: () => <p>Loading...</p>,
-});
-const PageHeader = dynamic(() => import('@/components/PageHeader'), {
-  loading: () => <p>Loading...</p>,
-});
-const ReadyToBegin = dynamic(() => import('@/components/ReadyToBegin'), {
-  loading: () => <p>Loading...</p>,
-});
-const OurWorksList = dynamic(() => import('@/components/homepage/OurWorksList'), {
-  loading: () => <p>Loading...</p>,
-});
 const OurWorksPage = ({ headerData, footerData, readyToBegin, data }) => {
   return (
     <>

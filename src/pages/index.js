@@ -2,44 +2,16 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 // import styles from "@/styles/Home.module.css";
-// import AboutUs from "@/components/homepage/AboutUs";
-// import PortfolioListing from "@/components/homepage/PortfolioListing";
-// import Testimonials from "@/components/homepage/Testimonials";
-// import Offgrid from "@/components/homepage/Offgrid";
-// import ReadyToBegin from "@/components/ReadyToBegin";
+import AboutUs from "@/components/homepage/AboutUs";
+import PortfolioListing from "@/components/homepage/PortfolioListing";
+import Testimonials from "@/components/homepage/Testimonials";
+import Offgrid from "@/components/homepage/Offgrid";
+import ReadyToBegin from "@/components/ReadyToBegin";
 import axios from "axios";
-// import Banner from "@/components/homepage/Banner";
-// import StickyHeader from "@/components/StickyHeader";
-// import Footer from "@/components/Footer";
+import Banner from "@/components/homepage/Banner";
+import StickyHeader from "@/components/StickyHeader";
+import Footer from "@/components/Footer";
 import HeadComponent from "@/components/HeadComponent";
-import dynamic from "next/dynamic";
- 
-
-const Footer = dynamic(() => import('@/components/Footer'), {
-  loading: () => <p>Loading...</p>,
-});
-const StickyHeader = dynamic(() => import('@/components/StickyHeader'), {
-  loading: () => <p>Loading...</p>,
-});
-const Banner = dynamic(() => import('@/components/homepage/Banner'), {
-  loading: () => <p>Loading...</p>,
-});
-const AboutUs = dynamic(() => import('@/components/homepage/AboutUs'), {
-  loading: () => <p>Loading...</p>,
-});
-const PortfolioListing = dynamic(() => import('@/components/homepage/PortfolioListing'), {
-  loading: () => <p>Loading...</p>,
-});
-const Testimonials = dynamic(() => import('@/components/homepage/Testimonials'), {
-  loading: () => <p>Loading...</p>,
-});
-const Offgrid = dynamic(() => import('@/components/homepage/Offgrid'), {
-  loading: () => <p>Loading...</p>,
-});
-const ReadyToBegin = dynamic(() => import('@/components/ReadyToBegin'), {
-  loading: () => <p>Loading...</p>,
-});
-
 
 const inter = Inter({ subsets: ["latin"] });
 

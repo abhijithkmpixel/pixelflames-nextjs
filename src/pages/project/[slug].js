@@ -1,28 +1,13 @@
-// import Footer from "@/components/Footer";
+import Footer from "@/components/Footer";
 import HeadComponent from "@/components/HeadComponent";
-// import PageHeader from "@/components/PageHeader";
-// import PortfolioPageBuilder from "@/components/PortfolioPageBuilder";
-// import ReadyToBegin from "@/components/ReadyToBegin";
-// import StickyHeader from "@/components/StickyHeader";
+import PageHeader from "@/components/PageHeader";
+import PortfolioPageBuilder from "@/components/PortfolioPageBuilder";
+import ReadyToBegin from "@/components/ReadyToBegin";
+import StickyHeader from "@/components/StickyHeader";
 import axios from "axios";
-import dynamic from "next/dynamic";
 import Head from "next/head";
 import React from "react";
-const Footer = dynamic(() => import('@/components/Footer'), {
-  loading: () => <p>Loading...</p>,
-});
-const StickyHeader = dynamic(() => import('@/components/StickyHeader'), {
-  loading: () => <p>Loading...</p>,
-});
-const PageHeader = dynamic(() => import('@/components/PageHeader'), {
-  loading: () => <p>Loading...</p>,
-});
-const PortfolioPageBuilder = dynamic(() => import('@/components/PortfolioPageBuilder'), {
-  loading: () => <p>Loading...</p>,
-});
-const ReadyToBegin = dynamic(() => import('@/components/ReadyToBegin'), {
-  loading: () => <p>Loading...</p>,
-});
+
 const ProjectDetailPage = ({ headerData, footerData, readyToBegin, data }) => {
   return (
     <>
