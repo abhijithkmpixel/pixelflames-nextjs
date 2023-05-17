@@ -69,8 +69,6 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      {/* <Header /> */}
-      {/* <StickyHeader stickyHeader={true} /> */}
       <div className="pre_loader loading">
         <Image
           src="/images/logo.png"

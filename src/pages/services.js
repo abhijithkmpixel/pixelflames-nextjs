@@ -1,12 +1,25 @@
-import FeaturedServicesRow from "@/components/FeaturedServicesRow";
-import Footer from "@/components/Footer";
+// import FeaturedServicesRow from "@/components/FeaturedServicesRow";
+// import Footer from "@/components/Footer";
 import HeadComponent from "@/components/HeadComponent";
-import ReadyToBegin from "@/components/ReadyToBegin";
-import StickyHeader from "@/components/StickyHeader";
+// import ReadyToBegin from "@/components/ReadyToBegin";
+// import StickyHeader from "@/components/StickyHeader";
 import axios from "axios";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import React from "react";
 
+const Footer = dynamic(() => import('@/components/Footer'), {
+  loading: () => <p>Loading...</p>,
+});
+const StickyHeader = dynamic(() => import('@/components/StickyHeader'), {
+  loading: () => <p>Loading...</p>,
+});
+const FeaturedServicesRow = dynamic(() => import('@/components/FeaturedServicesRow'), {
+  loading: () => <p>Loading...</p>,
+});
+const ReadyToBegin = dynamic(() => import('@/components/ReadyToBegin'), {
+  loading: () => <p>Loading...</p>,
+});
 const services = ({ headerData, footerData, readyToBegin, data }) => {
   return (
     <>

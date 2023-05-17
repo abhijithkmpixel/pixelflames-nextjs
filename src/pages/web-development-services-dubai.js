@@ -1,14 +1,33 @@
-import FeaturedServicesRow from "@/components/FeaturedServicesRow";
-import Footer from "@/components/Footer";
+// import FeaturedServicesRow from "@/components/FeaturedServicesRow";
+// import Footer from "@/components/Footer";
 import HeadComponent from "@/components/HeadComponent";
-import StickyHeader from "@/components/StickyHeader";
-import ContactUsModule from "@/components/homepage/ContactUsModule";
-import PortfolioListing from "@/components/homepage/PortfolioListing";
-import UiDesignCards from "@/components/homepage/UiDesignCards";
+// import StickyHeader from "@/components/StickyHeader";
+// import ContactUsModule from "@/components/homepage/ContactUsModule";
+// import PortfolioListing from "@/components/homepage/PortfolioListing";
+// import UiDesignCards from "@/components/homepage/UiDesignCards";
 import axios from "axios";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import React from "react";
 
+const Footer = dynamic(() => import('@/components/Footer'), {
+  loading: () => <p>Loading...</p>,
+});
+const StickyHeader = dynamic(() => import('@/components/StickyHeader'), {
+  loading: () => <p>Loading...</p>,
+});
+const FeaturedServicesRow = dynamic(() => import('@/components/FeaturedServicesRow'), {
+  loading: () => <p>Loading...</p>,
+});
+const ContactUsModule = dynamic(() => import('@/components/homepage/ContactUsModule'), {
+  loading: () => <p>Loading...</p>,
+});
+const PortfolioListing = dynamic(() => import('@/components/homepage/PortfolioListing'), {
+  loading: () => <p>Loading...</p>,
+});
+const UiDesignCards = dynamic(() => import('@/components/homepage/UiDesignCards'), {
+  loading: () => <p>Loading...</p>,
+});
 const webDevelopmentServicesDubaiPage = ({ headerData, footerData, data }) => {
   return (
     <>
