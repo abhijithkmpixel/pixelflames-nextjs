@@ -29,7 +29,7 @@ const ErrorPage = () => {
   return (
     <>
       <Head>
-        <title>Error 404</title>
+        <title>Error 500</title>
       </Head>
       {headerData !== null && (
         <StickyHeader
@@ -48,12 +48,9 @@ const ErrorPage = () => {
       <section className="page-404 ">
         <div className="container">
           <div className="d-flex justofl-content-center align-items-center flex-column">
-            <h1>404</h1>
+            <h1>500</h1>
             <center>
-              <h3>Oops! The page you're looking for can't be found.</h3>
-              <Link href="/" className="btn btn-danger mt-4">
-                Go to Homepage
-              </Link>
+              <h3>Oops! Internal server error.</h3>
             </center>
           </div>
         </div>

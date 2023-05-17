@@ -7,7 +7,7 @@ export default function Document() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#e74847" />
         <meta name="author" content="Pixelflames" />
-        <meta name="robots" content="noindex" />
+        {/* <meta name="robots" content="noindex" /> */}
         <meta
           name="keywords"
           content="wordpress, concrete5, umbraco, sitecore, sitefinity, web design &amp; development, ux design, react development, nuxt.js, opencart, woocommerce, website maintenance, seo optimisation, kentico development, cms consultancy"
