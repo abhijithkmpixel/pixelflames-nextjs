@@ -8,17 +8,20 @@ import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import "antd/dist/reset.css";
 import Image from "next/image";
-import '@/assets/styles/styles.min.css'
-import '@/assets/styles/maintenance.css'
-import '@/assets/styles/custom-styles.css'
-import '@/assets/styles/custom_wp.css'
-import '@/assets/styles/custom.css'
-import '@/assets/styles/revamp.css'
+import "@/assets/styles/styles.min.css";
+import "@/assets/styles/maintenance.css";
+import "@/assets/styles/custom-styles.css";
+import "@/assets/styles/custom_wp.css";
+import "@/assets/styles/custom.css";
+import "@/assets/styles/revamp.css";
 import "@/styles/globals.css";
 // NProgress.configure({ showSpinner: false ,parent: '#loader'});
 export default function App({ Component, pageProps }) {
   useEffect(() => {
     if (typeof window !== undefined) {
+      setTimeout(() => {
+        document.querySelector(".pre_loader").classList.remove("loading");
+      }, 2000);
       document.addEventListener("scroll", function () {
         if (window.scrollY > 400) {
           document.querySelector("body").classList.add("sticky_header");
@@ -68,7 +71,7 @@ export default function App({ Component, pageProps }) {
     <>
       {/* <Header /> */}
       {/* <StickyHeader stickyHeader={true} /> */}
-      <div className="pre_loader">
+      <div className="pre_loader loading">
         <Image
           src="/images/logo.png"
           alt="pixelflames logo"
