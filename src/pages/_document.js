@@ -4,7 +4,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <meta charset="UTF-8" />
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
         <meta name="author" content="Pixelflames" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,7 +19,7 @@ export default function Document() {
           sizes="114x114"
           href="/favicon114x114.png"
         />
-        <meta name="msapplication-TileImage" content="/favicon.ico"></meta>
+        <meta name="msapplication-TileImage" content="/favicon.ico" />
         <link rel="icon" type="image/png" href="/favicon.png" />
 
         <link rel="icon" href="/favicon.ico" />
