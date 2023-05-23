@@ -34,7 +34,7 @@ const OurWorksList = ({ title, description, button, portfolios }) => {
               <li key={index}>
                 <PortfolioListCard
                   title={portfolio?.attributes?.name}
-                  description={portfolio?.attributes?.title_description}
+                  description={portfolio?.attributes?.description}
                   image={
                     portfolio?.attributes?.listing_image_large?.data?.attributes?.url
                   }
